@@ -16,7 +16,8 @@ public class Product {
     private Long id;
     private String productName;
     @Column(length = 300)
-    private String description;
+    @Enumerated(EnumType.STRING)
+    private EnumDescriptionProduct description;
     @Column(length = 1000)
     private String detail;
     @Min(0)

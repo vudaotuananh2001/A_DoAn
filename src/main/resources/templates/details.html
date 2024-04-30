@@ -320,8 +320,8 @@
                             <a class="review-link" href="#">(1 customer review)</a>
                         </div>
                         <div class="single-product-price">
-                            <span class="price new-price" th:text="${product.price}">$</span>
-                            <span class="regular-price">$77.00</span>
+                            <span class="price new-price"></span>
+                            <span class="regular-price"  th:text="${product.price} +' $'" ></span>
                         </div>
                         <div class="product-description">
                             <p th:text="${product.detail}"></p>

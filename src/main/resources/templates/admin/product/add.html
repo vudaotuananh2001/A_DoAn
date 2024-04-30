@@ -106,7 +106,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Mô tả</label>
-                                            <input type="text" th:field="*{description}" class="form-control">
+                                            <select th:field="*{description}" class="form-control">
+                                                <option value="NewProduct">Sản phẩm mới </option>
+                                                <option value="SellingProduct">Sản phẩm bán chạy </option>
+                                                <option value="FavoriteProduct">Sản phẩm yêu thích</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Mô tả chi tiết</label>
