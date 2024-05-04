@@ -8,4 +8,5 @@ import java.util.List;
 public interface IAuthService {
     List<Product> getAll();
     List<Product> getProductNewProduct(EnumDescriptionProduct description);
+    List<Product> getProductByFavoriteProduct(EnumDescriptionProduct favoriteProduct);
 }

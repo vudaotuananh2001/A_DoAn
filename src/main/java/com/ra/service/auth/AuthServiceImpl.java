@@ -13,6 +13,11 @@ public class AuthServiceImpl implements  IAuthService{
     private IProductRepository productRepository;
 
     @Override
+    public List<Product> getProductByFavoriteProduct(EnumDescriptionProduct favoriteProduct) {
+        return productRepository.findProductByStatusIsTrueAndDescription(favoriteProduct);
+    }
+
+    @Override
     public List<Product> getProductNewProduct(EnumDescriptionProduct description) {
         return productRepository.findProductByStatusIsTrueAndDescription(description);
     }

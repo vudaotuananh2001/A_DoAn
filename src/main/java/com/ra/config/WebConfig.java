@@ -1,5 +1,6 @@
 package com.ra.config;
 
+import com.ra.models.entity.RoleEnum;
 import com.ra.security.RoleBasedAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,10 +31,18 @@ public class WebConfig{
                .authorizeHttpRequests((auth) ->auth
                                .requestMatchers("/*").permitAll()
                        .requestMatchers("/auth/**").permitAll()
-                       .requestMatchers("/admin/**").permitAll()
-
+                       .requestMatchers("/user/**").hasAuthority(String.valueOf(RoleEnum.USER))
+                       .requestMatchers("/admin/**").hasAuthority(String.valueOf(RoleEnum.ADMIN))
                        .anyRequest().authenticated()
-               ).build();
+               )     .formLogin(login -> login
+                       .loginPage("/login")
+                       .loginProcessingUrl("/login")
+                       .usernameParameter("username")
+                       .passwordParameter("password")
+                       .successHandler(roleBasedAuthenticationSuccessHandler())
+               )
+               .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login"))
+               .build();
    }
 
     @Bean

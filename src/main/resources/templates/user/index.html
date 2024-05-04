@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:51:39 GMT -->
 <head>
@@ -207,7 +207,7 @@
                                             <a href="#"><i class="fa fa-th"></i></a>
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
-                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    <li><a href="my-account.html" sec:authentication="principal.user.fullName"></a></li>
                                                     <li><a href="wishlist.html">Wishlist</a></li>
                                                     <li><a href="cart.html">Shopping cart</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
@@ -269,9 +269,9 @@
                 <div class="slider-progress"></div>
                 <div class="container">
                     <div class="hero-slider-content">
-                        <h1>Những món quà ý nghĩa<br>Dành cho nguời quan trọng </h1>
+                        <h1>Những món quà ý nghĩa </h1>
                         <div class="slider-border"></div>
-                        <p>Lưu lại nhưng thời gian hạnh phúc</p>
+                        <p> Lưu lại nhưng thời gian hạnh phúc</p>
                         <div class="slider-btn">
                             <a href="#">Shop Collection <i class="fa fa-chevron-right"></i></a>
                         </div>
@@ -284,9 +284,9 @@
                 <div class="slider-progress"></div>
                 <div class="container">
                     <div class="hero-slider-content">
-                        <h1>2022 Plant Trend</h1>
+                        <h1>Thời trạng và Tinh tế </h1>
                         <div class="slider-border"></div>
-                        <p>Captain America: Civil War Christopher Markus and Stephen McFeely see the Hulk as the game over moment. </p>
+                        <p>Lưu lại nhưng thời gian hạnh phúc</p>
                         <div class="slider-btn">
                             <a href="#">Shop Collection <i class="fa fa-chevron-right"></i></a>
                         </div>
@@ -386,9 +386,9 @@
             <div class="row">
                 <div class="cat-1 col-md-4">
                     <div class="categories-img img-full mb-30">
-                        <a href="#"><img th:src="@{/fe/img/category/home1-category-1.jpg}" alt=""></a>
+                        <a href="#"><img th:src="@{fe/img/category/img_1.png}" alt=""></a>
                         <div class="categories-content">
-                            <h3>Potted Plant</h3>
+                            <h3>Hoa Tươi</h3>
                             <h4>18 items</h4>
                         </div>
                     </div>
@@ -397,18 +397,18 @@
                     <div class="row">
                         <div class="cat-3 col-md-7">
                             <div class="categories-img img-full mb-30">
-                                <a href="#"><img th:src="@{fe/img/category/home1-category-2.jpg}" alt=""></a>
+                                <a href="#"><img th:src="@{fe/img/category/img.png}" alt=""></a>
                                 <div class="categories-content">
-                                    <h3>Potted Plant</h3>
+                                    <h3>Hoa Tươi</h3>
                                     <h4>18 items</h4>
                                 </div>
                             </div>
                         </div>
                         <div class="cat-4 col-md-5">
                             <div class="categories-img img-full mb-30">
-                                <a href="#"><img th:src="@{fe/img/category/home1-category-3.jpg}" alt=""></a>
+                                <a href="#"><img th:src="@{fe/img/category/hoatuoi2.jpg}" alt=""></a>
                                 <div class="categories-content">
-                                    <h3>Potted Plant</h3>
+                                    <h3>Hoa Tươi</h3>
                                     <h4>18 items</h4>
                                 </div>
                             </div>
@@ -417,7 +417,7 @@
                             <div class="categories-img img-full mb-30">
                                 <a href="#"><img th:src="@{fe/img/category/home1-category-4.jpg}" alt=""></a>
                                 <div class="categories-content">
-                                    <h3>Potted Plant</h3>
+                                    <h3>Hoa Tươi</h3>
                                     <h4>18 items</h4>
                                 </div>
                             </div>
@@ -426,7 +426,7 @@
                             <div class="categories-img img-full mb-30">
                                 <a href="#"><img th:src="@{fe/img/category/home1-category-5.jpg}" alt=""></a>
                                 <div class="categories-content">
-                                    <h3>Potted Plant</h3>
+                                    <h3>Hoa Tươit</h3>
                                     <h4>18 items</h4>
                                 </div>
                             </div>
@@ -788,8 +788,8 @@
                 <!--Section Title Start-->
                 <div class="col-12">
                     <div class="section-title text-center mb-35">
-                        <span>From The Blogs</span>
-                        <h3>Our Latest Posts</h3>
+                        <span>Từ Shop</span>
+                        <h3>Những Cập Nhật Mới Nhất</h3>
                     </div>
                 </div>
                 <!--Section Title End-->
@@ -800,16 +800,16 @@
                         <!--Single Blog Start-->
                         <div class="single-blog">
                             <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog1.jpg" alt="">
+                                <a href="#">
+                                    <img th:src="@{/fe/img/blog/hoablog.jpg}" alt="">
                                 </a>
                             </div>
                             <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Blog image post</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
+                                <div class="post-date">3/3/2023</div>
+                                <h3 class="post-title"><a href="single-blog.html">Thông tin mới</a></h3>
+                                <p class="post-description">Chúng tôi luôn luôn cập nhật các sản phẩm mới để có thể đa dạng, cũng như đáp ứng được nhu cầu của mọi khách hàng </p>
                                 <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
+                                    <img th:src="@{fe/img/icon/admin.jpg}" alt=""> <span>Posted by </span>
                                     <a href="#">admin </a>
                                 </p>
                             </div>
@@ -820,16 +820,16 @@
                         <!--Single Blog Start-->
                         <div class="single-blog">
                             <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog2.jpg" alt="">
+                                <a href="#">
+                                    <img th:src="@{/fe/img/blog/hoablog1.jpg}" alt="">
                                 </a>
                             </div>
                             <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Post with Gallery</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
+                                <div class="post-date">2/2/2024</div>
+                                <h3 class="post-title"><a href="single-blog.html">Cập nhật mới</a></h3>
+                                <p class="post-description">Thay đổi lại giao diện website của Shop cùng với vô can các sản phẩm </p>
                                 <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
+                                    <img th:src="@{fe/img/icon/admin.jpg}" alt=""> <span>Posted by </span>
                                     <a href="#">admin </a>
                                 </p>
                             </div>
@@ -840,76 +840,16 @@
                         <!--Single Blog Start-->
                         <div class="single-blog">
                             <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog3.jpg" alt="">
+                                <a href="#">
+                                    <img th:src="@{/fe/img/blog/hoablog2.jpg}" alt="">
                                 </a>
                             </div>
                             <div class="blog-content">
                                 <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Post with Audio</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
+                                <h3 class="post-title"><a href="single-blog.html">Cơ sở mới đã hoàn thiện </a></h3>
+                                <p class="post-description">Ngay tại lúc này! Khách hàng có thể tới các cơ sở bên mình để trải nghiệm các sản phẩm </p>
                                 <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog4.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Post with Video</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog5.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Maecenas ultricies</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Blog image post</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
+                                    <img th:src="@{fe/img/icon/admin.jpg}" alt=""> <span>Posted by </span>
                                     <a href="#">admin </a>
                                 </p>
                             </div>
@@ -1044,7 +984,7 @@
                             <!--Single Footer Widget Start-->
                             <div class="single-footer-widget mb-30">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="img/logo/logo-footer.png" alt=""></a>
+                                    <a href="index.html"><img th:src="@{fe/img/logo/logo-footer.png}" alt=""></a>
                                 </div>
                             </div>
                             <!--Single Footer Widget End-->

@@ -14,6 +14,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
     private String userName;
     private String password;
@@ -21,11 +22,11 @@ public class User {
     private  String address;
     private String email;
     private  String phone;
-    private Boolean status;
+    private Boolean status=true;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
-    joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+    joinColumns = @JoinColumn(name = "user_id"),// tham chiếu đến bảng user
+            inverseJoinColumns = @JoinColumn(name = "role_id") // tham chiếu đến bản role
     )
     private Set<Role> roles;
 }

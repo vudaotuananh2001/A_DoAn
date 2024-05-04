@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:51:39 GMT -->
+<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:51 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Plantmore - Responsive Bootstrap 5 eCommerce Template</title>
+    <title>Login-Register || Plantmore</title>
     <meta name="description" content="">
     <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!--All Css Here-->
 
-    <!-- Bootstrap CSS-->
     <link rel="stylesheet" th:href="@{fe/css/bootstrap.min.css}">
     <!-- Linearicon CSS-->
     <link rel="stylesheet" th:href="@{fe/css/linearicons.min.css}">
@@ -52,8 +51,8 @@
     <!--Header Area Start-->
     <header>
         <div class="header-container">
-            <div class="header-area header-absolute header-sticky pt-30 pb-30">
-                <div class="container-fluid pl-50 pr-50">
+            <div class="header-area header-sticky pt-30 pb-30">
+                <div class="container">
                     <div class="row">
                         <!--Header Logo Start-->
                         <div class="col-lg-3 col-md-3">
@@ -160,7 +159,7 @@
                                             <ul>
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img th:src="@{fe/img/cart/cart1.jpg}" alt=""></a>
+                                                        <a href="single-product.html"><img src="img/cart/cart1.jpg" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h5 class="product-name"><a href="single-product.html">Odio tortor consequat</a></h5>
@@ -172,7 +171,7 @@
                                                 </li>
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img th:src="@{fe/img/cart/cart2.jpg}" alt=""></a>
+                                                        <a href="single-product.html"><img src="img/cart/cart2.jpg" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h5 class="product-name"><a href="single-product.html">Auctor sem</a></h5>
@@ -261,476 +260,106 @@
         </div>
     </header>
     <!--Header Area End-->
-    <!--Slider Area Start-->
-    <div class="slider-area">
-        <div class="hero-slider owl-carousel">
-            <!--Single Slider Start-->
-            <div class="single-slider" style="background-image: url('/fe/img/slider/home1-slider1.jpg');">
-                <div class="slider-progress"></div>
-                <div class="container">
-                    <div class="hero-slider-content">
-                        <h1>Những món quà ý nghĩa<br>Dành cho nguời quan trọng </h1>
-                        <div class="slider-border"></div>
-                        <p>Lưu lại nhưng thời gian hạnh phúc</p>
-                        <div class="slider-btn">
-                            <a href="#">Shop Collection <i class="fa fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Single Slider End-->
-            <!--Single Slider Start-->
-            <div class="single-slider" style="background-image: url('/fe/img/slider/home1-slider2.jpg');">
-                <div class="slider-progress"></div>
-                <div class="container">
-                    <div class="hero-slider-content">
-                        <h1>2022 Plant Trend</h1>
-                        <div class="slider-border"></div>
-                        <p>Captain America: Civil War Christopher Markus and Stephen McFeely see the Hulk as the game over moment. </p>
-                        <div class="slider-btn">
-                            <a href="#">Shop Collection <i class="fa fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Single Slider End-->
-        </div>
-    </div>
-    <!--Slider Area End-->
-    <!--Feature Area Start-->
-    <div class="feature-area mt-120">
+    <!--Breadcrumb Tow Start-->
+    <div class="breadcrumb-tow mb-120">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <!--Single Feature Start-->
-                    <div class="single-feature mb-35">
-                        <div class="feature-icon">
-                            <span class="lnr lnr-rocket"></span>
-                        </div>
-                        <div class="feature-content">
-                            <h3>FREE SHIPPING</h3>
-                            <p>ALL ORDER OVER $100</p>
-                        </div>
+                <div class="col-12">
+                    <div class="breadcrumb-title">
+                        <h1>Login - Register</h1>
                     </div>
-                    <!--Single Feature End-->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <!--Single Feature Start-->
-                    <div class="single-feature mb-35">
-                        <div class="feature-icon">
-                            <span class="lnr lnr-phone"></span>
-                        </div>
-                        <div class="feature-content">
-                            <h3>24/7 DEDICATED SUPPORT</h3>
-                            <p>0123 456 789</p>
-                        </div>
+                    <div class="breadcrumb-content breadcrumb-content-tow">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active">Login-Register</li>
+                        </ul>
                     </div>
-                    <!--Single Feature End-->
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <!--Single Feature Start-->
-                    <div class="single-feature mb-35">
-                        <div class="feature-icon">
-                            <span class="lnr lnr-redo"></span>
-                        </div>
-                        <div class="feature-content">
-                            <h3>MONEY BACK</h3>
-                            <p>IF THE ITEM DIDN’T SUIT YOU</p>
-                        </div>
-                    </div>
-                    <!--Single Feature End-->
                 </div>
             </div>
         </div>
     </div>
-    <!--Feature Area End-->
-    <!--Our History Area Start-->
-    <div class="our-history-area mt-85">
+    <!--Breadcrumb Tow End-->
+    <!--Login Register Area Strat-->
+    <div class="login-register-area mb-80">
         <div class="container">
             <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-35">
-                        <h2> Hãy trầm tĩnh lại </h2>
-                        <span>Một vài cảm xúc nhỏ </span>
+                <!--Login Form Start-->
+                <div class="col-md-6 col-sm-6">
+                    <div class="customer-login-register">
+                        <div class="form-login-title">
+                            <h2>Login</h2>
+                        </div>
+                        <div class="login-form">
+                            <form action="/login" method="post">
+                                <div class="form-fild">
+                                    <p><label>Username or email address <span class="required">*</span></label></p>
+                                    <input name="username" value="" type="text">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Password <span class="required">*</span></label></p>
+                                    <input name="password" value="" type="password">
+                                </div>
+                                <div class="login-submit">
+                                    <button type="submit" class="form-button">Login</button>
+                                    <label>
+                                        <input class="checkbox" name="rememberme" value="" type="checkbox">
+                                        <span>Remember me</span>
+                                    </label>
+                                </div>
+                                <div class="lost-password">
+                                    <a href="#">Lost your password?</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <!--Section Title End-->
-            </div>
-            <div class="row">
-                <div class="col-lg-8 ms-auto me-auto">
-                    <div class="history-area-content text-center">
-                        <p><strong>Niềm hạnh phúc vỡ òa</strong></p>
-                        <p>Dó là một trải nghiệm đáng nhớ! Được nhận hoa từ một người, đặc biệt là trong một dịp không ngờ đến, thật sự là một trải nghiệm đầy ý nghĩa và làm ấm lòng. Cảm giác bất ngờ và hạnh phúc lúc đó không thể diễn tả bằng lời.</p>
+                <!--Login Form End-->
+                <!--Register Form Start-->
+                <div class="col-md-6 col-sm-6">
+                    <div class="customer-login-register register-pt-0">
+                        <div class="form-register-title">
+                            <h2>Register</h2>
+                        </div>
+                        <div class="register-form">
+                            <form action="/register" method="post" th:object="${user}">
+                                <div class="form-fild">
+                                    <p><label>FullName <span class="required">*</span></label></p>
+                                    <input  th:field="*{fullName}"  type="text">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Address <span class="required">*</span></label></p>
+                                    <input  th:field="*{address}" type="text">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Email <span class="required">*</span></label></p>
+                                    <input  th:field="*{email}" type="email">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Phone <span class="required">*</span></label></p>
+                                    <input th:field="*{phone}" type="text">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Username<span class="required">*</span></label></p>
+                                    <input th:field="*{userName}" value="" type="text">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Password <span class="required">*</span></label></p>
+                                    <input th:field="*{password}" type="password">
+                                </div>
+                                <div class="register-submit">
+                                    <button type="submit" class="form-button">Register</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                <!--Register Form End-->
             </div>
         </div>
     </div>
-    <!--Our History Area End-->
-    <!--Categories Area Start-->
-    <div class="categories-area mt-115">
-        <div class="container">
-            <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-35">
-                        <span>The Best collection</span>
-                        <h3>Shop By Categories</h3>
-                    </div>
-                </div>
-                <!--Section Title End-->
-            </div>
-        </div>
-        <div class="container-fluid pl-50 pr-50">
-            <div class="row">
-                <div class="cat-1 col-md-4">
-                    <div class="categories-img img-full mb-30">
-                        <a href="#"><img th:src="@{/fe/img/category/home1-category-1.jpg}" alt=""></a>
-                        <div class="categories-content">
-                            <h3>Potted Plant</h3>
-                            <h4>18 items</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="cat-2 col-md-8">
-                    <div class="row">
-                        <div class="cat-3 col-md-7">
-                            <div class="categories-img img-full mb-30">
-                                <a href="#"><img th:src="@{fe/img/category/home1-category-2.jpg}" alt=""></a>
-                                <div class="categories-content">
-                                    <h3>Potted Plant</h3>
-                                    <h4>18 items</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cat-4 col-md-5">
-                            <div class="categories-img img-full mb-30">
-                                <a href="#"><img th:src="@{fe/img/category/home1-category-3.jpg}" alt=""></a>
-                                <div class="categories-content">
-                                    <h3>Potted Plant</h3>
-                                    <h4>18 items</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cat-5 col-md-4">
-                            <div class="categories-img img-full mb-30">
-                                <a href="#"><img th:src="@{fe/img/category/home1-category-4.jpg}" alt=""></a>
-                                <div class="categories-content">
-                                    <h3>Potted Plant</h3>
-                                    <h4>18 items</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cat-6 col-md-8">
-                            <div class="categories-img img-full mb-30">
-                                <a href="#"><img th:src="@{fe/img/category/home1-category-5.jpg}" alt=""></a>
-                                <div class="categories-content">
-                                    <h3>Potted Plant</h3>
-                                    <h4>18 items</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Categories Area End-->
-    <!--Product Area Start-->
-    <div class="product-area mt-85">
-        <div class="container">
-            <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-35">
-                        <span>The Most Trendy</span>
-                        <h3>Các sản phẩm </h3>
-                    </div>
-                </div>
-                <!--Section Title End-->
-            </div>
-            <div class="row">
-                <div class="product-slider-active p-0">
-                    <div class="col-md-3 col-lg-3 col-sm-12" th:each="iteam : ${productList}">
-                        <!--Single Product Start-->
-                        <div class="single-product mb-25">
-                            <div class="product-img img-full">
-                                <a th:href="@{/auth/details/{id} (id=${iteam.id})}">
-                                    <img th:src="@{|/upload/${iteam.image}|}" width="auto">
-                                </a>
-                                <span class="onsale">Sale!</span>
-                                <div class="product-action">
-                                    <ul>
-                                        <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h2><a th:href="@{/auth/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
-                                <div class="product-price">
-                                    <div class="price-box">
-                                        <span class="regular-price" th:text="${iteam.price} +' $'"></span>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a href="#">Add To Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="product-area mt-85">
-        <div class="container">
-            <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-35">
-                        <span>The Most Trendy</span>
-                        <h3>Sản phẩm yêu thích</h3>
-                    </div>
-                </div>
-                <!--Section Title End-->
-            </div>
-            <div class="row">
-                <div class="product-slider-active p-0">
-                    <div class="col-md-3 col-lg-3 col-sm-12" th:each="iteam : ${productListNewProduct}">
-                        <!--Single Product Start-->
-                        <div class="single-product mb-25">
-                            <div class="product-img img-full">
-                                <a th:href="@{/auth/details/{id} (id=${iteam.id})}">
-                                    <img th:src="@{|/upload/${iteam.image}|}" width="auto">
-                                </a>
-                                <span class="onsale">Sale!</span>
-                                <div class="product-action">
-                                    <ul>
-                                        <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h2><a th:href="@{/auth/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
-                                <div class="product-price">
-                                    <div class="price-box">
-                                        <span class="regular-price" th:text="${iteam.price} +' $'"></span>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a href="#">Add To Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Product Area End-->
-    <!--Product Countdown Area Start-->
-    <div class="product-countdown-area mt-105 ml-50 mr-50">
-        <div class="container">
-            <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-30">
-                        <h3>Deal of The Day</h3>
-                    </div>
-                </div>
-                <!--Section Title End-->
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-md-10 col-12 ms-auto me-auto mb-20">
-                    <!--Count Down Area Start-->
-                    <div class="count-down-area">
-                        <!--Count Down Start-->
-                        <div class="countdown-inner">
-                            <div class="count-box">
-                                <div class="pro-countdown" data-countdown="2033/10/01"></div>
-                            </div>
-                        </div>
-                        <!--Count Down End-->
-                        <!--Count Down Start-->
-                        <div class="countdown-inner">
-                            <div class="count-box">
-                                <div class="pro-countdown" data-countdown="2033/10/01"></div>
-                            </div>
-                        </div>
-                        <!--Count Down End-->
-                        <!--Count Down Start-->
-                        <div class="countdown-inner">
-                            <div class="count-box">
-                                <div class="pro-countdown" data-countdown="2033/10/01"></div>
-                            </div>
-                        </div>
-                        <!--Count Down End-->
-                        <!--Count Down Start-->
-                        <div class="countdown-inner">
-                            <div class="count-box">
-                                <div class="pro-countdown" data-countdown="2033/10/01"></div>
-                            </div>
-                        </div>
-                        <!--Count Down End-->
-                        <!--Count Down Start-->
-                        <div class="countdown-inner">
-                            <div class="count-box">
-                                <div class="pro-countdown" data-countdown="2033/10/01"></div>
-                            </div>
-                        </div>
-                        <!--Count Down End-->
-                    </div>
-                    <!--Count Down Area End-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="offer-slider p-0">
-                    <div class="col-md-4" th:each="iteam : ${productListNewProductFavoriteProduct}">
-                        <!--Single Product Start-->
-                        <div class="single-product mb-25">
-                            <div class="product-img img-full">
-                                <a th:href="@{/auth/details/{id}(id=${iteam.id})}">
-                                    <img th:src="@{|/upload/${iteam.image}|}" width="150px">
-                                </a>
-                                <span class="onsale">Sale!</span>
-                                <div class="product-action">
-                                    <ul>
-                                        <li><a href="#open-modal" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h2><a th:href="@{/auth/details/{id}(id=${iteam.id})}"  th:text="${iteam.productName}"></a></h2>
-                                <div class="product-price">
-                                    <div class="price-box">
-                                        <span class="regular-price" th:text="${iteam.price} +'$'"></span>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a href="#">Add To Cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Single Product End-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Product Countdown Area End-->
-    <!--Banner Area Start-->
-    <div class="banner-area pt-105">
-        <div class="container-fluid pl-50 pr-50">
-            <div class="row">
-                <div class="col-md-4">
-                    <!--Single Banner Area Start-->
-                    <div class="single-banner mb-35">
-                        <div class="banner-img">
-                            <a href="#">
-                                <img th:src="@{/fe/img/banner/banner1.jpg}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--Single Banner Area End-->
-                </div>
-                <div class="col-md-4">
-                    <!--Single Banner Area Start-->
-                    <div class="single-banner mb-35">
-                        <div class="banner-img">
-                            <a href="#">
-                                <img th:src="@{/fe/img/banner/banner2.jpg}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--Single Banner Area End-->
-                </div>
-                <div class="col-md-4">
-                    <!--Single Banner Area Start-->
-                    <div class="single-banner mb-35">
-                        <div class="banner-img">
-                            <a href="#">
-                                <img th:src="@{/fe/img/banner/banner3.jpg}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!--Single Banner Area End-->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Banner Area End-->
-    <!--Testimonial Area Start-->
-    <div class="testimonial-area mt-75">
-        <div class="container">
-            <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-35">
-                        <span>Chúng tôi sẽ luôn ở đây</span>
-                        <h3>Sẽ nói với bạn </h3>
-                    </div>
-                </div>
-                <!--Section Title End-->
-            </div>
-            <div class="testimonial-active owl-carousel">
-                <div class="col-12">
-                    <!--Single Testimonial Start-->
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img th:src="@{fe/img/testimonial/testimonial3.jpg}" alt="">
-                        </div>
-                        <div class="testimonial-content">
-                            <p>Tôi muốn gửi lời cảm ơn chân thành đến bạn về việc mua và tặng hoa. Đó không chỉ là một hành động đơn giản, mà còn là một biểu hiện của sự quan tâm, sự chăm sóc và tình cảm sâu sắc. Việc chọn lựa và tặng hoa không chỉ là một phần của nghệ thuật, mà còn là cách tuyệt vời để gửi đi những thông điệp yêu thương và ý nghĩa.</p>
-                            <div class="testimonial-author">
-                                <h6>Katherine Sullivan <span>Customer</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Single Testimonial End-->
-                </div>
-                <div class="col-12">
-                    <!--Single Testimonial Start-->
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img th:src="@{fe/img/testimonial/testimonial2.jpg}" alt="">
-                        </div>
-                        <div class="testimonial-content">
-                            <p>Hoa là biểu tượng của sự đẹp đẽ, sự tươi mới và tình yêu. Mỗi bông hoa mang theo một câu chuyện riêng, và khi bạn chọn tặng hoa, bạn đang chọn gửi đi một phần của trái tim và tình cảm của mình đến người nhận.</p>
-                            <div class="testimonial-author">
-                                <h6>Md Shohel <span>Customer</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Single Testimonial End-->
-                </div>
-                <div class="col-12">
-                    <!--Single Testimonial Start-->
-                    <div class="single-testimonial text-center">
-                        <div class="testimonial-img">
-                            <img th:src="@{fe/img/testimonial/testimonial1.jpg}" alt="">
-                        </div>
-                        <div class="testimonial-content">
-                            <p>Tôi hy vọng rằng những bó hoa bạn đã chọn sẽ mang lại niềm vui và hạnh phúc cho người nhận, và làm cho mọi khoảnh khắc trở nên đẹp đẽ và đáng nhớ. Lời cảm ơn của tôi không đủ để diễn tả sự biết ơn của mình về việc bạn đã chọn hoa để tặng. Cảm ơn bạn rất nhiều về điều đó.</p>
-                            <div class="testimonial-author">
-                                <h6>Katherine Sullivan <span>Customer</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Single Testimonial End-->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Testimonial Area End-->
+    <!--Login Register Area End-->
     <!--Brand Area Start-->
-    <div class="brand-area mt-100">
+    <div class="brand-area mb-105">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -781,178 +410,6 @@
         </div>
     </div>
     <!--Brand Area End-->
-    <!--Blog Area Start-->
-    <div class="blog-area ml-50 mr-50 mt-105">
-        <div class="container">
-            <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-35">
-                        <span>From The Blogs</span>
-                        <h3>Our Latest Posts</h3>
-                    </div>
-                </div>
-                <!--Section Title End-->
-            </div>
-            <div class="row">
-                <div class="blog-slider-active p-0">
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Blog image post</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Post with Gallery</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Post with Audio</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog4.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Post with Video</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog5.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Maecenas ultricies</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                    <div class="col-md-4">
-                        <!--Single Blog Start-->
-                        <div class="single-blog">
-                            <div class="blog-img img-full">
-                                <a href="single-blog.html">
-                                    <img src="img/blog/blog1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="post-date">01/12/2022</div>
-                                <h3 class="post-title"><a href="single-blog.html">Blog image post</a></h3>
-                                <p class="post-description">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero</p>
-                                <p class="post-author">
-                                    <img src="img/icon/author.png" alt=""> <span>Posted by </span>
-                                    <a href="#">admin </a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single Blog End-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Blog Area End-->
-    <!--News Letter Area Start-->
-    <div class="news-letter-area mt-120 mb-120">
-        <div class="container">
-            <div class="row">
-                <!--Section Title Start-->
-                <div class="col-12">
-                    <div class="section-title text-center mb-35">
-                        <h3>Send Newsletter</h3>
-                    </div>
-                </div>
-                <!--Section Title End-->
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="news-latter-box">
-                        <p>Enter Your Email Address For Our Mailing List To Keep Your Self Update</p>
-                        <div class="news-letter-form text-center">
-                            <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="popup-subscribe-form validate" target="_blank" novalidate>
-                                <div id="mc_embed_signup_scroll">
-                                    <div id="mc-form" class="mc-form subscribe-form" >
-                                        <input id="mc-email" type="email" autocomplete="off" placeholder="Enter your email here" />
-                                        <button id="mc-submit">Subscribe <i class="fa fa-chevron-right"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--News Letter Area End-->
     <!--Footer Area Start-->
     <footer>
         <div class="footer-container">
@@ -1141,42 +598,42 @@
                                 <div class="tab-pane fade show active" id="single-slide1" role="tabpanel" aria-labelledby="single-slide-tab-1">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product1.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product1.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide2" role="tabpanel" aria-labelledby="single-slide-tab-2">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product2.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product2.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide3" role="tabpanel" aria-labelledby="single-slide-tab-3">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product3.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product3.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide4" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product4.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product4.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide5" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product5.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product5.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide6" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product6.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product6.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
@@ -1256,7 +713,6 @@
 
 
 <!--All Js Here-->
-
 <!--Jquery 3.6.0-->
 <script th:src="@{fe/js/vendor/modernizr-3.6.0.min.js}"></script>
 <script th:src="@{fe/js/vendor/jquery-3.6.0.min.js}"></script>
@@ -1298,4 +754,6 @@
 <!--Main Js-->
 <script th:src="@{fe/js/main.js}"></script>
 </body>
+
+<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:51 GMT -->
 </html>

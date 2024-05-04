@@ -23,15 +23,7 @@ public class ProductServiceImpl implements IProductService {
         }
         return productRepository.findAll(pageable);
     }
-
-    @Override
-    public List<Product> getAll(String search) {
-        if(search != null){
-        //    return productRepository.findProductByProductNameLike(search);
-        }
-        return  null;     //productRepository.findAll();
-    }
-
+    
     @Override
     public Product save(Product product) {
         return productRepository.save(product);
