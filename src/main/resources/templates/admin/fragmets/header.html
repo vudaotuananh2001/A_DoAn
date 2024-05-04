@@ -1,4 +1,4 @@
-<header class="main-header" th:fragmet="header">
+<header class="main-header" th:fragmet="header" xmlns:sec="http://www.w3.org/1999/xhtml">
     <!-- Logo -->
     <a href="/admin" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -105,15 +105,14 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img th:src="@{/assets/images/user2-160x160.jpg}" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs" sec:authentication="principal.user.fullName"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img th:src="@{/assets/images/user2-160x160.jpg}" class="img-circle" alt="User Image">
 
-                            <p>
-                                Alexander Pierce - Web Developer
+                            <p sec:authentication="principal.user.fullName">
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
