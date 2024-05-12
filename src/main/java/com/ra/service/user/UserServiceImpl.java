@@ -17,6 +17,12 @@ import java.util.Set;
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
+
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
     @Autowired
     private RoleRepository roleRepository;
     @Autowired

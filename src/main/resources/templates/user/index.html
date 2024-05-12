@@ -148,44 +148,32 @@
                             <div class="header-option">
                                 <div class="mini-cart-search">
                                     <div class="mini-cart">
-                                        <a href="#">
+                                        <a th:href="@{/user/shopping-cart}">
                                                 <span class="cart-icon">
-                                                   <span class="cart-quantity">2</span>
+                                                   <span class="cart-quantity" th:text="${countById}"></span>
                                                 </span>
-                                            <span class="cart-title">Your cart <br><strong>$190.00</strong></span>
+                                            <span class="cart-title">Your cart <br><strong th:text="${total} + '$'"></strong></span>
                                         </a>
                                         <!--Cart Dropdown Start-->
                                         <div class="cart-dropdown">
-                                            <ul>
+                                            <ul th:each="item :${shoppingCartList}">
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img th:src="@{fe/img/cart/cart1.jpg}" alt=""></a>
+                                                        <a href="single-product.html"><img th:src="@{|upload/${item.product.image}|}" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h5 class="product-name"><a href="single-product.html">Odio tortor consequat</a></h5>
-                                                        <span class="cart-price">1 × $90.00</span>
+                                                        <h5 class="product-name"><a href="single-product.html" th:text="${item.product.productName}"></a></h5>
+                                                        <span class="cart-price" th:text="${item.quantity} + 'x'+ ${item.product.price}"></span>
                                                     </div>
                                                     <div class="cart-remove">
-                                                        <a title="Remove" href="#"><i class="fa fa-times"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li class="single-cart-item">
-                                                    <div class="cart-img">
-                                                        <a href="single-product.html"><img th:src="@{fe/img/cart/cart2.jpg}" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h5 class="product-name"><a href="single-product.html">Auctor sem</a></h5>
-                                                        <span class="cart-price">1 × $100.00</span>
-                                                    </div>
-                                                    <div class="cart-remove">
-                                                        <a title="Remove" href="#"><i class="fa fa-times"></i></a>
+                                                        <a title="Remove" th:href="@{/user/shopping-cart/delete/{id} (id=${item.id})}"><i class="fa fa-times"></i></a>
                                                     </div>
                                                 </li>
                                             </ul>
-                                            <p class="cart-subtotal"><strong>Subtotal:</strong> <span class="float-right">$190.00</span></p>
                                             <p class="cart-btn">
-                                                <a href="cart.html">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
+                                                <a href="cart.html">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
+
+                                            <a href="checkout.html">Checkout</a>
                                             </p>
                                         </div>
                                         <!--Cart Dropdown End-->
@@ -456,7 +444,7 @@
                                         <span class="regular-price" th:text="${iteam.price} +' $'"></span>
                                     </div>
                                     <div class="add-to-cart">
-                                        <a href="#">Add To Cart</a>
+                                        <a th:href="@{/user/shopping-cart/add/{id} (id=${iteam.id})}">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
