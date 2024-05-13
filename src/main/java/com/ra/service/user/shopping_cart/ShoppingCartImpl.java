@@ -44,12 +44,12 @@ public class ShoppingCartImpl implements ShoppingCartService {
 
     @Override
     public ShoppingCart save(ShoppingCart shoppingCart) {
-        return null;
+        return shoppingCartRepository.save(shoppingCart);
     }
 
     @Override
-    public ShoppingCart findShoppingCartById(Long id) {
-        return null;
+    public ShoppingCart findShoppingCartById(Long userId, Long product_id) {
+        return shoppingCartRepository.findByUserIdAndProductId(userId,product_id);
     }
 
     @Override

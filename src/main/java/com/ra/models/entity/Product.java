@@ -1,10 +1,13 @@
 package com.ra.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -29,4 +32,12 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id" , referencedColumnName = "id")
     private Category category;
+
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    List<OrderDetails> orderDetails;
+
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    List<ShoppingCart> shopingCarts;
 }

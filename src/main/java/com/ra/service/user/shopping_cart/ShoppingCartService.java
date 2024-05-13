@@ -9,7 +9,7 @@ public interface ShoppingCartService {
     List<ShoppingCart> getAll(Long id);
     ShoppingCart add(ShoppingCartRequest shoppingCartRequest,Long userId);
     ShoppingCart save(ShoppingCart shoppingCart);
-    ShoppingCart findShoppingCartById(Long id);
+    ShoppingCart findShoppingCartById(Long product_id,Long userId);
     void deleteById(Long id);
 
 }

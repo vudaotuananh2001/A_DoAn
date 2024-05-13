@@ -582,7 +582,7 @@
                                         <span class="regular-price" th:text="${iteam.price} +'$'"></span>
                                     </div>
                                     <div class="add-to-cart">
-                                        <a href="#">Add To Cart</a>
+                                        <a th:href="@{/user/shopping-cart/add/{id} (id=${iteam.id})}">Add To Cart</a>
                                     </div>
                                 </div>
                             </div>
