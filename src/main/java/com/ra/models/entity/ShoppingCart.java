@@ -24,6 +24,4 @@ public class ShoppingCart {
     private User user;
     @Min(1)
     private int quantity;
-
-
 }

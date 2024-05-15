@@ -15,20 +15,24 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double orderPrice;
+    private Double orderPrice; // tông tiền
     private String note;
     private Date sentDate; // ngày gửi
     private Date receivedate; // ngày nhận
 
     @ManyToOne // người nhận
-    @JoinColumn(name = "userid",referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "order")
     @JsonIgnore
     List<OrderDetails> orderDetails;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatusEnum statusEnum;
 }

@@ -69,9 +69,11 @@ public class ShoppingCartController {
         return "redirect:/user";
     }
 
+
     @GetMapping("/cart/delete/{id}")
     public String deleteCart(@PathVariable("id") Long id){
         shoppingCartService.deleteById(id);
         return "redirect:/user/shopping-cart";
     }
+
 }

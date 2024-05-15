@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Data
+@Table(name = "order_details")
 public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +25,7 @@ public class OrderDetails {
     @ManyToOne
     @JoinColumn(name = "product_id",referencedColumnName = "id")
     private Product product;
-
     private Double price;
-
     @Min(1)
     private int quantity;
 
