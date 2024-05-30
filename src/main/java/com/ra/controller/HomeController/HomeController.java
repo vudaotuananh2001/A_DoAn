@@ -24,10 +24,16 @@ public class HomeController {
     private UserService userService;
     @GetMapping("")
     public String index(Model model){
-        List<Product> productList =authService.getAll();
-        model.addAttribute("productList",productList);
+
+        // Sản phẩm bán chạy
+        List<Product> productListSellProduct =authService.getProductNewProduct(EnumDescriptionProduct.SellingProduct);
+        model.addAttribute("productListSellProduct",productListSellProduct);
+
+        // Sản phẩm mới
         List<Product> productListNewProduct =authService.getProductNewProduct(EnumDescriptionProduct.NewProduct);
         model.addAttribute("productListNewProduct",productListNewProduct);
+
+        // sản phẩm yêu thích
         List<Product> productListNewProductFavoriteProduct = authService.getProductByFavoriteProduct(EnumDescriptionProduct.FavoriteProduct);
         model.addAttribute("productListNewProductFavoriteProduct",productListNewProductFavoriteProduct);
         return "index";

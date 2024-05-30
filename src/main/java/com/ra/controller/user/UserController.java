@@ -47,10 +47,16 @@ public class UserController {
         model.addAttribute("countById",countById);
         model.addAttribute("shoppingCartList", shoppingCartList);
         model.addAttribute("total", total);
-        List<Product> productList =authService.getAll();
-        model.addAttribute("productList",productList);
+
+        // Sản phẩm bán chạy
+        List<Product> productListSellProduct =authService.getProductNewProduct(EnumDescriptionProduct.SellingProduct);
+        model.addAttribute("productListSellProduct",productListSellProduct);
+
+        // Sản phẩm mới
         List<Product> productListNewProduct =authService.getProductNewProduct(EnumDescriptionProduct.NewProduct);
         model.addAttribute("productListNewProduct",productListNewProduct);
+
+        // sản phẩm yêu thích
         List<Product> productListNewProductFavoriteProduct = authService.getProductByFavoriteProduct(EnumDescriptionProduct.FavoriteProduct);
         model.addAttribute("productListNewProductFavoriteProduct",productListNewProductFavoriteProduct);
         return "user/index";
