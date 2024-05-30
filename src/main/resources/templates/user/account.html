@@ -1,10 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
+<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/my-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:51 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login-Register || Plantmore</title>
+    <title>My Account || Plantmore</title>
     <meta name="description" content="">
     <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,32 +14,33 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!--All Css Here-->
 
-    <link rel="stylesheet" th:href="@{fe/css/bootstrap.min.css}">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" th:href="@{/fe/css/bootstrap.min.css}">
     <!-- Linearicon CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/linearicons.min.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/linearicons.min.css}">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/font-awesome.min.css}">
 
     <!-- Animate CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/animate.css}">
     <!-- Owl Carousel CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/owl.carousel.min.css}">
     <!-- Slick CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/slick.css}">
     <!-- Meanmenu CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/meanmenu.min.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/meanmenu.min.css}">
     <!-- Easyzoom CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/easyzoom.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/easyzoom.css}">
     <!-- Venobox CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/venobox.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/venobox.css}">
     <!-- Jquery Ui CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/jquery-ui.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/jquery-ui.css}">
     <!-- Nice Select CSS-->
-    <link rel="stylesheet" th:href="@{fe/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/nice-select.css}">
     <!-- Style CSS -->
-    <link rel="stylesheet" th:href="@{fe/style.css}">
+    <link rel="stylesheet" th:href="@{/fe/style.css}">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" th:href="@{fe/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/fe/css/responsive.css}">
 
 </head>
 <body>
@@ -57,7 +59,7 @@
                         <div class="col-lg-3 col-md-3">
                             <div class="logo-area">
                                 <a href="index.html">
-                                    <img th:src="@{img/logo/logo.png}" alt="">
+                                    <img src="img/logo/logo.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -72,33 +74,33 @@
                                             <!--Dropdown Menu Start-->
                                             <ul class="dropdown">
                                                 <li><a href="index.html">Home Page One</a></li>
-                                                <li><a href="#">Home Page Two</a></li>
-                                                <li><a href="#">Home Page Three</a></li>
-                                                <li><a href="#">Home Page Four</a></li>
-                                                <li><a href="#">Home Page Five</a></li>
-                                                <li><a href="#">Home Page Six</a></li>
-                                                <li><a href="#">Home Page Seven</a></li>
+                                                <li><a href="index-2.html">Home Page Two</a></li>
+                                                <li><a href="index-3.html">Home Page Three</a></li>
+                                                <li><a href="index-4.html">Home Page Four</a></li>
+                                                <li><a href="index-5.html">Home Page Five</a></li>
+                                                <li><a href="index-6.html">Home Page Six</a></li>
+                                                <li><a href="index-7.html">Home Page Seven</a></li>
                                             </ul>
                                             <!--Dropdown Menu End-->
                                         </li>
-                                        <li><a href="#">Shop</a></li>
-                                        <li><a href="#">Portfolio</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Pages</a>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="portfolio.html">Portfolio</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="blog.html">Pages</a>
                                             <!--Dropdown Menu Start-->
                                             <ul class="dropdown">
-                                                <li><a href="#">Single Product</a></li>
-                                                <li><a href="#">Single Product Variable</a></li>
-                                                <li><a href="#">Single Product Affiliate</a></li>
-                                                <li><a href="#">Shop</a></li>
-                                                <li><a href="#">Shop List View</a></li>
-                                                <li><a href="#">Shop Right Sidebar</a></li>
-                                                <li><a href="#">Shopping Cart</a></li>
-                                                <li><a href="#">Wishlist</a></li>
-                                                <li><a href="#">Checkout</a></li>
-                                                <li><a href="#">Compare</a></li>
-                                                <li><a href="#">My Account</a></li>
-                                                <li><a href="login">Log In</a></li>
+                                                <li><a href="single-product.html">Single Product</a></li>
+                                                <li><a href="single-product-variable.html">Single Product Variable</a></li>
+                                                <li><a href="single-product-affiliate.html">Single Product Affiliate</a></li>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-list.html">Shop List View</a></li>
+                                                <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
+                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="compare.html">Compare</a></li>
+                                                <li><a href="my-account.html">My Account</a></li>
+                                                <li><a href="login-register.html">Log In</a></li>
                                             </ul>
                                             <!--Dropdown Menu End-->
                                         </li>
@@ -107,33 +109,33 @@
                                             <ul class="mega-menu">
                                                 <li><a href="#" class="item-link">Pages</a>
                                                     <ul>
-                                                        <li><a href="#">About Us</a></li>
-                                                        <li><a href="#">About Us 02</a></li>
-                                                        <li><a href="#">Contact Us</a></li>
-                                                        <li><a href="#">Contact Us 02</a></li>
-                                                        <li><a href="#">Services</a></li>
-                                                        <li><a href="#">Services 02</a></li>
-                                                        <li><a href="#">Frequently Questions</a></li>
+                                                        <li><a href="about.html">About Us</a></li>
+                                                        <li><a href="about-2.html">About Us 02</a></li>
+                                                        <li><a href="contact.html">Contact Us</a></li>
+                                                        <li><a href="contact-2.html">Contact Us 02</a></li>
+                                                        <li><a href="service.html">Services</a></li>
+                                                        <li><a href="service-2.html">Services 02</a></li>
+                                                        <li><a href="faq.html">Frequently Questions</a></li>
                                                         <li><a href="404.html">Error 404</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#" class="item-link">Blog</a>
                                                     <ul>
-                                                        <li><a href="#">None Sidebar</a></li>
-                                                        <li><a href="#">Sidebar Left</a></li>
-                                                        <li><a href="#">Gallery Format</a></li>
-                                                        <li><a href="#">Audio Format</a></li>
-                                                        <li><a href="#">Video Format</a></li>
+                                                        <li><a href="blog-nosidebar.html">None Sidebar</a></li>
+                                                        <li><a href="blog-left-sidebar.html">Sidebar Left</a></li>
+                                                        <li><a href="single-blog.html">Gallery Format</a></li>
+                                                        <li><a href="single-blog.html">Audio Format</a></li>
+                                                        <li><a href="single-blog.html">Video Format</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#" class="item-link">Shop</a>
                                                     <ul>
-                                                        <<li><a href="#">Full Width</a></li>
-                                                        <li><a href="#">Sidebar Right</a></li>
-                                                        <li><a href="#">List View</a></li>
-                                                        <li><a href="#">Single Product</a></li>
-                                                        <li><a href="#">Variable Product</a></li>
-                                                        <li><a href="#">Grouped Product</a></li>
+                                                        <li><a href="shop-full-width.html">Full Width</a></li>
+                                                        <li><a href="shop-right-sidebar.html">Sidebar Right</a></li>
+                                                        <li><a href="shop-list.html">List View</a></li>
+                                                        <li><a href="single-product.html">Single Product</a></li>
+                                                        <li><a href="single-product.html">Variable Product</a></li>
+                                                        <li><a href="single-product.html">Grouped Product</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -147,46 +149,34 @@
                             <div class="header-option">
                                 <div class="mini-cart-search">
                                     <div class="mini-cart">
-                                        <a href="#">
+                                        <a th:href="@{/user/shopping-cart}">
                                                 <span class="cart-icon">
-                                                   <span class="cart-quantity">2</span>
+                                                   <span class="cart-quantity" th:text="${countById}"></span>
                                                 </span>
-                                            <span class="cart-title">Your cart <br><strong>$190.00</strong></span>
+                                            <span class="cart-title">Your cart <br><strong th:text="${total} + '$'"></strong></span>
                                         </a>
                                         <!--Cart Dropdown Start-->
-                                        <div class="cart-dropdown">
-                                            <ul>
+                                    <!-- <div class="cart-dropdown">
+                                            <ul th:each="item :${shoppingCartList}">
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img src="img/cart/cart1.jpg" alt=""></a>
+                                                        <a href="single-product.html"><img th:src="@{|upload/${item.product.image}|}" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h5 class="product-name"><a href="single-product.html">Odio tortor consequat</a></h5>
-                                                        <span class="cart-price">1 × $90.00</span>
+                                                        <h5 class="product-name"><a href="single-product.html" th:text="${item.product.productName}"></a></h5>
+                                                        <span class="cart-price" th:text="${item.quantity} + 'x'+ ${item.product.price}"></span>
                                                     </div>
                                                     <div class="cart-remove">
-                                                        <a title="Remove" href="#"><i class="fa fa-times"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li class="single-cart-item">
-                                                    <div class="cart-img">
-                                                        <a href="single-product.html"><img src="img/cart/cart2.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h5 class="product-name"><a href="single-product.html">Auctor sem</a></h5>
-                                                        <span class="cart-price">1 × $100.00</span>
-                                                    </div>
-                                                    <div class="cart-remove">
-                                                        <a title="Remove" href="#"><i class="fa fa-times"></i></a>
+                                                        <a title="Remove" th:href="@{/user/shopping-cart/delete/{id} (id=${item.id})}"><i class="fa fa-times"></i></a>
                                                     </div>
                                                 </li>
                                             </ul>
-                                            <p class="cart-subtotal"><strong>Subtotal:</strong> <span class="float-right">$190.00</span></p>
                                             <p class="cart-btn">
-                                                <a href="cart.html">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
+                                                <a href="cart.html">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
+
+                                            <a href="checkout.html">Checkout</a>
                                             </p>
-                                        </div>
+                                        </div>-->
                                         <!--Cart Dropdown End-->
                                     </div>
                                     <div class="header-search">
@@ -205,11 +195,11 @@
                                             <a href="#"><i class="fa fa-th"></i></a>
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
-                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    <li><a th:href="@{/user/account}" sec:authentication="principal.user.fullName"></a></li>
                                                     <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="cart.html">Shopping cart</a></li>
+                                                    <li><a th:href="@{/user/shopping-cart}">Shopping cart</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login-register.html">Log In</a></li>
+                                                    <li><a href="/login">Log In</a></li>
                                                 </ul>
                                                 <div class="switcher">
                                                     <div class="language">
@@ -265,12 +255,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-title">
-                        <h1>Login - Register</h1>
+                        <h1>My Account</h1>
                     </div>
                     <div class="breadcrumb-content breadcrumb-content-tow">
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li class="active">Login-Register</li>
+                            <li class="active">My Account</li>
                         </ul>
                     </div>
                 </div>
@@ -278,85 +268,164 @@
         </div>
     </div>
     <!--Breadcrumb Tow End-->
-    <!--Login Register Area Strat-->
-    <div class="login-register-area mb-80">
+    <!--My Account Area Strat-->
+    <div class="my-account white-bg mb-110">
         <div class="container">
-            <div class="row">
-                <!--Login Form Start-->
-                <div class="col-md-6 col-sm-6">
-                    <div class="customer-login-register">
-                        <div class="form-login-title">
-                            <h2>Login</h2>
+            <div class="account-dashboard">
+                <div class="dashboard-upper-info">
+                    <div class="row align-items-center g-0">
+                        <div class="col-lg-3 col-md-12">
+                            <div class="d-single-info">
+                                <p class="user-name">Hello <span sec:authentication="principal.user.fullName"></span></p>
+                            </div>
                         </div>
-                        <div class="login-form">
-                            <form action="/login" method="post">
-                                <div class="form-fild">
-                                    <p><label>Username or email address <span class="required">*</span></label></p>
-                                    <input name="username" value="" type="text">
-                                </div>
-                                <div class="form-fild">
-                                    <p><label>Password <span class="required">*</span></label></p>
-                                    <input name="password" value="" type="password">
-                                </div>
-                                <div class="login-submit">
-                                    <button type="submit" class="form-button">Login</button>
-                                    <label>
-                                        <input class="checkbox" name="rememberme" value="" type="checkbox">
-                                        <span>Remember me</span>
-                                    </label>
-                                </div>
-                                <div class="lost-password">
-                                    <a href="#">Lost your password?</a>
-                                </div>
-                            </form>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="d-single-info">
+                                <p>Cần sự trợ giúp? Dịch vụ khách hàng tại.</p>
+                                <p>admin@devitems.com.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12">
+                            <div class="d-single-info">
+                                <p>Gửi email tại</p>
+                                <p>support@yoursite.com</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-12">
+                            <div class="d-single-info text-lg-center">
+                                <a class="view-cart" th:href="@{/user/shopping-cart}"><i class="fa fa-cart-plus"></i>view cart</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--Login Form End-->
-                <!--Register Form Start-->
-                <div class="col-md-6 col-sm-6">
-                    <div class="customer-login-register register-pt-0">
-                        <div class="form-register-title">
-                            <h2>Register</h2>
-                        </div>
-                        <div class="register-form">
-                            <form action="/register" method="post" th:object="${user}">
-                                <div class="form-fild">
-                                    <p><label>FullName <span class="required">*</span></label></p>
-                                    <input  th:field="*{fullName}"  type="text">
+                <div class="row">
+                    <div class="col-md-12 col-lg-2">
+                        <!-- Nav tabs -->
+                        <ul class="nav flex-column dashboard-list" role="tablist">
+                            <li><a class="nav-link active" data-bs-toggle="tab" href="#dashboard">Bảng điều khiển</a></li>
+                            <li> <a class="nav-link" data-bs-toggle="tab" href="#orders">Đạt hàng</a></li>
+                            <li><a class="nav-link" data-bs-toggle="tab" href="#downloads">Downloads</a></li>
+                            <li><a class="nav-link" data-bs-toggle="tab" href="#address">Địa chỉ</a></li>
+                            <li><a class="nav-link" data-bs-toggle="tab" href="#account-details">Chi tiết tài khoản</a></li>
+                            <li><a class="nav-link" href="/login">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 col-lg-10">
+                        <!-- Tab panes -->
+                        <div class="tab-content dashboard-content">
+                            <div id="dashboard" class="tab-pane fade show active">
+                                <h3>Bảng điều khiển </h3>
+                                <p>Từ bảng điều khiển tài khoản của bạn. bạn có thể dễ dàng kiểm tra và xem Đơn hàng gần đây của mình, quản lý Địa chỉ giao hàng và thanh toán cũng như Chỉnh sửa mật khẩu và chi tiết tài khoản của bạn.</p>
+                            </div>
+                            <div id="orders" class="tab-pane fade">
+                                <h3>Đơn hàng</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Ngày đặt</th>
+                                            <th>Trạng thái</th>
+                                            <th>Tổng tiền</th>
+                                            <th>Chi tiết</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody th:each="iteam : ${orderList}">
+                                            <tr>
+                                                <td th:text="${iteam.id}"></td>
+                                                <td th:text="${iteam.sentDate}"></td>
+                                                <td th:text="${iteam.statusEnum == 'waitting' ? 'Đang đợi' : 'Đã nhận'}"></td>
+                                                <td th:text="${iteam.orderPrice}"></td>
+                                                <td><a class="view" href="cart.html">view</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="form-fild">
-                                    <p><label>Address <span class="required">*</span></label></p>
-                                    <input  th:field="*{address}" type="text">
+                            </div>
+                            <div id="downloads" class="tab-pane fade">
+                                <h3>Downloads</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Downloads</th>
+                                            <th>Expires</th>
+                                            <th>Download</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Haven - Free Real Estate PSD Template</td>
+                                            <td>May 10, 2022</td>
+                                            <td>never</td>
+                                            <td><a class="view" href="#">Click Here To Download Your File</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nevara - ecommerce html template</td>
+                                            <td>Sep 11, 2022</td>
+                                            <td>never</td>
+                                            <td><a class="view" href="#">Click Here To Download Your File</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="form-fild">
-                                    <p><label>Email <span class="required">*</span></label></p>
-                                    <input  th:field="*{email}" type="email">
+                            </div>
+                            <div id="address" class="tab-pane">
+                                <p>Các địa chỉ sau sẽ được sử dụng trên trang thanh toán theo mặc định.</p>
+                                <h4 class="billing-address">Billing address</h4>
+                                <a class="view" href="#">edit</a>
+                                <p>Nia Matos</p>
+                                <p>Australia</p>
+                            </div>
+                            <div id="account-details" class="tab-pane fade">
+                                <h3>Account details </h3>
+                                <div class="login">
+                                    <div class="login-form-container">
+                                        <div class="account-login-form">
+                                            <form action="#">
+                                                <p>Already have an account? <a href="#">Log in instead!</a></p>
+                                                <label>Social title</label>
+                                                <div class="input-radio">
+                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mr.</span>
+                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mrs.</span>
+                                                </div>
+                                                <label>First Name</label>
+                                                <input name="first-name" type="text">
+                                                <label>Last Name</label>
+                                                <input name="last-name" type="text">
+                                                <label>Email</label>
+                                                <input name="email-name" type="text">
+                                                <label>Password</label>
+                                                <input name="user-password" type="password">
+                                                <label>Birthdate</label>
+                                                <input name="birthday" value="" placeholder="MM/DD/YYYY" type="text">
+                                                <span class="example">
+                                                      (E.g.: 05/31/1970)
+                                                    </span>
+                                                <span class="custom-checkbox">
+                                                        <input name="optin" value="1" type="checkbox">
+                                                        <label>Receive offers from our partners</label>
+                                                    </span>
+                                                <span class="custom-checkbox">
+                                                        <input name="newsletter" value="1" type="checkbox">
+                                                        <label>Sign up for our newsletter<br><em>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</em></label>
+                                                    </span>
+                                                <div class="button-box">
+                                                    <button type="submit" class="default-btn">save</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-fild">
-                                    <p><label>Phone <span class="required">*</span></label></p>
-                                    <input th:field="*{phone}" type="text">
-                                </div>
-                                <div class="form-fild">
-                                    <p><label>Username<span class="required">*</span></label></p>
-                                    <input th:field="*{userName}" value="" type="text">
-                                </div>
-                                <div class="form-fild">
-                                    <p><label>Password <span class="required">*</span></label></p>
-                                    <input th:field="*{password}" type="password">
-                                </div>
-                                <div class="register-submit">
-                                    <button type="submit" class="form-button">Register</button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--Register Form End-->
             </div>
         </div>
     </div>
-    <!--Login Register Area End-->
+    <!--My Account Area End-->
     <!--Brand Area Start-->
     <div class="brand-area mb-105">
         <div class="container">
@@ -500,7 +569,7 @@
                             <!--Single Footer Widget Start-->
                             <div class="single-footer-widget mb-30">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img th:src="@{/fe/img/logo/logo-footer.png}" alt=""></a>
+                                    <a href="index.html"><img src="img/logo/logo-footer.png" alt=""></a>
                                 </div>
                             </div>
                             <!--Single Footer Widget End-->
@@ -512,7 +581,7 @@
                                     <div class="icon">
                                         <i class="fa fa-home"></i>
                                     </div>
-                                    <p>Địa chỉ: Số 82 - Ngõ 10 Đường Hoàng Quốc Viêt - Hà Nội</p>
+                                    <p>Address : No 40 Baria Sreet 15/2 NewYork City, NY, United States.</p>
                                 </div>
                             </div>
                             <!--Single Footer Widget End-->
@@ -524,7 +593,7 @@
                                     <div class="icon">
                                         <i class="fa fa-envelope-open-o"></i>
                                     </div>
-                                    <p>Email: <br>Admin@gmail.com</p>
+                                    <p>Email: <br>info@yourmail.com</p>
                                 </div>
                             </div>
                             <!--Single Footer Widget End-->
@@ -536,7 +605,7 @@
                                     <div class="icon">
                                         <i class="fa fa-mobile"></i>
                                     </div>
-                                    <p>Phone: <br>0374523456</p>
+                                    <p>Phone: <br>(+68) 123 456 7890</p>
                                 </div>
                             </div>
                             <!--Single Footer Widget End-->
@@ -552,7 +621,7 @@
                         <div class="col-md-12">
                             <!--Footer Payment Start-->
                             <div class="footer-payments-image">
-                                <img th:src="@{/fe/img/payment/payment-icon.png}" alt="">
+                                <img src="img/payment/payment-icon.png" alt="">
                             </div>
                             <!--Footer Payment End-->
                             <!--Footer Menu Start-->
@@ -597,42 +666,42 @@
                                 <div class="tab-pane fade show active" id="single-slide1" role="tabpanel" aria-labelledby="single-slide-tab-1">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product1.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product1.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide2" role="tabpanel" aria-labelledby="single-slide-tab-2">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product2.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product2.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide3" role="tabpanel" aria-labelledby="single-slide-tab-3">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product3.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product3.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide4" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product4.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product4.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide5" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product5.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product5.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide6" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img th:src="@{/fe/img/single-product/large/single-product6.jpg}" alt="">
+                                        <img src="img/single-product/large/single-product6.jpg" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
@@ -712,46 +781,48 @@
 
 
 <!--All Js Here-->
+
 <!--Jquery 3.6.0-->
-<script th:src="@{fe/js/vendor/modernizr-3.6.0.min.js}"></script>
-<script th:src="@{fe/js/vendor/jquery-3.6.0.min.js}"></script>
-<script th:src="@{fe/js/vendor/jquery-migrate-3.3.2.min.js}"></script>
+<script th:src="@{/fe/js/vendor/modernizr-3.6.0.min.js}"></script>
+<script th:src="@{/fe/js/vendor/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/fe/js/vendor/jquery-migrate-3.3.2.min.js}"></script>
 <!--Popper-->
-<script th:src="@{fe/js/popper.min.js}"></script>
+<script th:src="@{/fe/js/popper.min.js}"></script>
 <!--Bootstrap-->
-<script th:src="@{fe/js/bootstrap.min.js}"></script>
+<script th:src="@{/fe/js/bootstrap.min.js}"></script>
 <!--Imagesloaded-->
-<script th:src="@{fe/js/imagesloaded.pkgd.min.js}"></script>
+<script th:src="@{/fe/js/imagesloaded.pkgd.min.js}"></script>
 <!--Isotope-->
-<script th:src="@{fe/js/isotope.pkgd.min.js}"></script>
+<script th:src="@{/fe/js/isotope.pkgd.min.js}"></script>
 <!--Waypoints-->
-<script th:src="@{fe/js/waypoints.min.js}"></script>
+<script th:src="@{/fe/js/waypoints.min.js}"></script>
 <!--Counterup-->
-<script th:src="@{fe/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/fe/js/jquery.counterup.min.js}"></script>
 <!--Carousel-->
-<script th:src="@{fe/js/owl.carousel.min.js}"></script>
+<script th:src="@{/fe/js/owl.carousel.min.js}"></script>
 <!--Slick-->
-<script th:src="@{fe/js/slick.min.js}"></script>
+<script th:src="@{/fe/js/slick.min.js}"></script>
 <!--Meanmenu-->
-<script th:src="@{fe/js/jquery.meanmenu.min.js}"></script>
+<script th:src="@{/fe/js/jquery.meanmenu.min.js}"></script>
 <!--Easyzoom-->
-<script th:src="@{fe/js/easyzoom.min.js}"></script>
+<script th:src="@{/fe/js/easyzoom.min.js}"></script>
 <!--Nice Select-->
-<script th:src="@{fe/js/jquery.nice-select.min.js}"></script>
+<script th:src="@{/fe/js/jquery.nice-select.min.js}"></script>
 <!--ScrollUp-->
-<script th:src="@{fe/js/jquery.scrollUp.min.js}"></script>
+<script th:src="@{/fe/js/jquery.scrollUp.min.js}"></script>
 <!--Wow-->
-<script th:src="@{fe/js/wow.min.js}"></script>
+<script th:src="@{/fe/js/wow.min.js}"></script>
 <!--Venobox-->
-<script th:src="@{fe/js/venobox.min.js}"></script>
+<script th:src="@{/fe/js/venobox.min.js}"></script>
 <!--Jquery Ui-->
-<script th:src="@{fe/js/jquery-ui.js}"></script>
+<script th:src="@{/fe/js/jquery-ui.js}"></script>
 <!--Countdown-->
-<script th:src="@{fe/js/jquery.countdown.min.js}"></script>
+<script th:src="@{/fe/js/jquery.countdown.min.js}"></script>
 <!--Plugins-->
-<script th:src="@{fe/js/plugins.js}"></script>
+<script th:src="@{/fe/js/plugins.js}"></script>
 <!--Main Js-->
-<script th:src="@{fe/js/main.js}"></script>
+<script th:src="@{/fe/js/main.js}"></script>
 </body>
 
+<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/my-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:51 GMT -->
 </html>

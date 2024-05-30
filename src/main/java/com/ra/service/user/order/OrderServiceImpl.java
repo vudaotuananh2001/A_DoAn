@@ -7,12 +7,13 @@ import com.ra.repository.user.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class OrderServiceImpl implements  OrderService{
     @Autowired
     private OrderRepository orderRepository;
-
     @Override
     public Order add(User user, Double total) {
             Order order = Order.builder()
@@ -22,5 +23,10 @@ public class OrderServiceImpl implements  OrderService{
                     .sentDate(new java.sql.Date(new java.util.Date().getTime()))
                     .build();
         return orderRepository.save(order);
+    }
+
+    @Override
+    public List<Order> getAllOrder(Long id) {
+        return orderRepository.findOrdersByUserId(id);
     }
 }

@@ -28,7 +28,4 @@ public class OrderDetails {
     private Double price;
     @Min(1)
     private int quantity;
-
-
-
 }

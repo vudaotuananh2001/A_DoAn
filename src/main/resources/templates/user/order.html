@@ -174,11 +174,11 @@
                                             <a href="#"><i class="fa fa-th"></i></a>
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
-                                                    <li><a href="my-account.html">My Account</a></li>
+                                                    <li><a th:href="@{/user/account}" sec:authentication="principal.user.fullName"></a></li>
                                                     <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="cart.html">Shopping cart</a></li>
+                                                    <li><a th:href="@{/user/shopping-cart}">Shopping cart</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login-register.html">Log In</a></li>
+                                                    <li><a href="/login">Log In</a></li>
                                                 </ul>
                                                 <div class="switcher">
                                                     <div class="language">

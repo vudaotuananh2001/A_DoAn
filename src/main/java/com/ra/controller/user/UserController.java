@@ -35,6 +35,7 @@ public class UserController {
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
         return userPrincipal.getUser().getId();
     }
+
     @GetMapping("")
     public String home(Model model){
         List<ShoppingCart> shoppingCartList = shoppingCartService.getAll(getUserId());
