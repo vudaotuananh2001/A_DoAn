@@ -173,9 +173,9 @@
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
                                                     <li><a th:href="@{/user/account}" sec:authentication="principal.user.fullName"></a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                    <li><a th:href="@{/user/wishlist}">Wishlist</a></li>
                                                     <li><a th:href="@{/user/shopping-cart}">Shopping cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a th:href="@{/user/checkout}">Checkout</a></li>
                                                     <li><a href="/login">Log In</a></li>
                                                 </ul>
                                                 <div class="switcher">
@@ -232,7 +232,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-title">
-                        <h1>Shopping Cart</h1>
+                        <h1>Giỏ hàng</h1>
                     </div>
                     <div class="breadcrumb-content breadcrumb-content-tow">
                         <ul>
@@ -256,11 +256,11 @@
                                 <thead>
                                 <tr>
                                     <th class="plantmore-product-remove">remove</th>
-                                    <th class="plantmore-product-thumbnail">images</th>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="plantmore-product-price">Unit Price</th>
-                                    <th class="plantmore-product-quantity">Quantity</th>
-                                    <th class="plantmore-product-subtotal">Total</th>
+                                    <th class="plantmore-product-thumbnail">Hình ảnh </th>
+                                    <th class="cart-product-name">Tên sản phẩm</th>
+                                    <th class="plantmore-product-price">Giá </th>
+                                    <th class="plantmore-product-quantity">Số lượng</th>
+                                    <th class="plantmore-product-subtotal">Tổng tiền</th>
                                 </tr>
                                 </thead>
                                 <tbody th:each="iteam : ${shoppingCartList}">

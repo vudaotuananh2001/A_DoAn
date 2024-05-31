@@ -195,9 +195,9 @@
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
                                                     <li><a th:href="@{/user/account}" sec:authentication="principal.user.fullName"></a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                    <li><a th:href="@{/user/wishlist}">Wishlist</a></li>
                                                     <li><a th:href="@{/user/shopping-cart}">Shopping cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a th:href="@{/user/checkout}">Checkout</a></li>
                                                     <li><a href="/login">Log In</a></li>
                                                 </ul>
                                                 <div class="switcher">
@@ -432,7 +432,7 @@
                                 <div class="product-action">
                                     <ul>
                                         <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a th:href="@{/user/wishlist/add/{id} (id= ${iteam.id})}" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
                                         <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
@@ -479,7 +479,7 @@
                                 <div class="product-action">
                                     <ul>
                                         <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a th:href="@{/user/wishlist/add/{id} (id= ${iteam.id})}" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
                                         <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
@@ -526,7 +526,7 @@
                                 <div class="product-action">
                                     <ul>
                                         <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a th:href="@{/user/wishlist/add/{id} (id= ${iteam.id})}" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
                                         <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
@@ -617,7 +617,7 @@
                                 <div class="product-action">
                                     <ul>
                                         <li><a href="#open-modal" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a th:href="@{/user/wishlist/add/{id} (id= ${iteam.id})}" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
                                         <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>

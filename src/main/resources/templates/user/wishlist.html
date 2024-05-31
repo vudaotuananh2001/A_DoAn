@@ -1,11 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
-<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:49 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Checkout || Plantmore</title>
+    <title>Wishlist || Plantmore</title>
     <meta name="description" content="">
     <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +40,6 @@
     <link rel="stylesheet" th:href="@{/fe/style.css}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" th:href="@{/fe/css/responsive.css}">
-
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -58,8 +56,8 @@
                         <!--Header Logo Start-->
                         <div class="col-lg-3 col-md-3">
                             <div class="logo-area">
-                                <a th:href="@{/user}">
-                                    <img th:src="@{/fe/img/logo/logo.png}" alt="">
+                                <a href="index.html">
+                                    <img src="img/logo/logo.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -153,9 +151,30 @@
                                                 <span class="cart-icon">
                                                    <span class="cart-quantity">2</span>
                                                 </span>
-                                            <span class="cart-title">Your cart <br><strong th:text="${total}"></strong></span>
+                                            <span class="cart-title">Your cart <br><strong>$190.00</strong></span>
                                         </a>
                                         <!--Cart Dropdown Start-->
+                                        <div class="cart-dropdown">
+                                            <ul th:each="item :${shoppingCartList}">
+                                                <li class="single-cart-item">
+                                                    <div class="cart-img">
+                                                        <a href="single-product.html"><img th:src="@{|upload/${item.product.image}|}" alt=""></a>
+                                                    </div>
+                                                    <div class="cart-content">
+                                                        <h5 class="product-name"><a href="single-product.html" th:text="${item.product.productName}"></a></h5>
+                                                        <span class="cart-price" th:text="${item.quantity} + 'x'+ ${item.product.price}"></span>
+                                                    </div>
+                                                    <div class="cart-remove">
+                                                        <a title="Remove" th:href="@{/user/shopping-cart/delete/{id} (id=${item.id})}"><i class="fa fa-times"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <p class="cart-btn">
+                                                <a th:href="@{/user/shopping-cart}">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
+
+                                            <a href="checkout.html">Checkout</a>
+                                            </p>
+                                        </div>
                                         <!--Cart Dropdown End-->
                                     </div>
                                     <div class="header-search">
@@ -234,12 +253,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-title">
-                        <h1>Checkout</h1>
+                        <h1>Yêu Thích</h1>
                     </div>
                     <div class="breadcrumb-content breadcrumb-content-tow">
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li class="active">Checkout</li>
+                            <li class="active">Wishlist</li>
                         </ul>
                     </div>
                 </div>
@@ -247,178 +266,40 @@
         </div>
     </div>
     <!--Breadcrumb Tow End-->
-    <!--Checkout Area Strat-->
-    <div class="checkout-area mb-80">
+    <!--Wishlist Area Strat-->
+    <div class="wishlist-area mb-110">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="coupon-accordion">
-                        <!--Accordion Start-->
-                        <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
-                        <div id="checkout-login" class="coupon-content">
-                            <div class="coupon-info">
-                                <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>
-                                <form action="#">
-                                    <p class="form-row-first">
-                                        <label>Username or email <span class="required">*</span></label>
-                                        <input type="text">
-                                    </p>
-                                    <p class="form-row-last">
-                                        <label>Password  <span class="required">*</span></label>
-                                        <input type="text">
-                                    </p>
-                                    <p class="form-row">
-                                        <input value="Login" type="submit">
-                                        <label>
-                                            <input type="checkbox">
-                                            Remember me
-                                        </label>
-                                    </p>
-                                    <p class="lost-password"><a href="#">Lost your password?</a></p>
-                                </form>
-                            </div>
-                        </div>
-                        <!--Accordion End-->
-                        <!--Accordion Start-->
-                        <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
-                        <div id="checkout_coupon" class="coupon-checkout-content">
-                            <div class="coupon-info">
-                                <form action="#">
-                                    <p class="checkout-coupon">
-                                        <input placeholder="Coupon code" type="text">
-                                        <input value="Apply Coupon" type="submit">
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                        <!--Accordion End-->
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <form action="/user/checkout/checkout" method="post" id="formCheckOut">
-                        <div class="checkbox-form">
-                            <h3>Billing Details</h3>
-                            <div class="row" th:object="${user}">
-
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Full Name <span class="required">*</span></label>
-                                        <input placeholder="" type="text" th:value="${user.fullName}">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list">
-                                        <label>Address <span class="required">*</span></label>
-                                        <input placeholder="Street address" type="text" th:value="${user.address}">
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Email Address <span class="required">*</span></label>
-                                        <input placeholder="" type="email" th:value="${user.email}" >
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Phone  <span class="required">*</span></label>
-                                        <input type="text" th:value="${user.phone}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="your-order">
-                        <h3>Your order</h3>
-                        <div class="your-order-table table-responsive">
+                    <form action="#">
+                        <div class="table-content table-responsive">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="cart-product-total">Total</th>
+                                    <th class="plantmore-product-remove">remove</th>
+                                    <th class="plantmore-product-thumbnail">Hình ảnh</th>
+                                    <th class="cart-product-name">Tên sản phẩm</th>
+                                    <th class="plantmore-product-price">Giá sản phẩm</th>
+                                    <th class="plantmore-product-add-cart">add to cart</th>
                                 </tr>
                                 </thead>
-                                <tbody th:each="ieam :${shoppingCartList}">
-                                <tr class="cart_item">
-                                    <td class="cart-product-name" th:text="${ieam.product.productName}"><strong class="product-quantity" th:text="${ieam.quantity}"></strong></td>
-                                    <td class="cart-product-total"><span class="amount" th:text="${ieam.product.price * ieam.quantity}"></span></td>
+                                <tbody th:each="iteam : ${wishListList}">
+                                <tr>
+                                    <td class="plantmore-product-remove"><a th:href="@{/user/wishlist/delete/{id} (id=${iteam.id})}"><i class="fa fa-times"></i></a></td>
+                                    <td class="plantmore-product-thumbnail"><a th:href="@{/auth/details/{id} (id=${iteam.id})}"><img th:src="@{|/upload/${iteam.product.image}|}" width="200px"></a></td>
+                                    <td class="plantmore-product-name"><a th:href="@{/auth/details/{id} (id=${iteam.id})}" th:text="${iteam.product.productName}"></a></td>
+                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.product.price} +'$'"></span></td>
+                                    <td class="plantmore-product-add-cart"><a th:href="@{/user/shopping-cart/add/{id} (id=${iteam.id})}">add to cart</a></td>
                                 </tr>
                                 </tbody>
-                                <tfoot>
-                                <tr class="cart-subtotal">
-                                    <th>Cart Subtotal</th>
-                                    <td><span class="amount" th:text="${total}"></span></td>
-                                </tr>
-                                <tr class="order-total">
-                                    <th>Order Total</th>
-                                    <td><strong><span class="amount" th:text="${total}"></span></strong></td>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
-                        <div class="payment-method">
-                            <div class="payment-accordion">
-                                <div id="accordion">
-                                    <div class="card">
-                                        <div class="card-header" id="#payment-1">
-                                            <h5 class="panel-title">
-                                                <a class="" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Direct Bank Transfer.
-                                                </a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="#payment-2">
-                                            <h5 class="panel-title">
-                                                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    Cheque Payment
-                                                </a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="#payment-3">
-                                            <h5 class="panel-title">
-                                                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    PayPal
-                                                </a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="order-button-payment">
-                                    <input value="Place order" type="submit" onclick="handleCheckOutSubmit()">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!--Checkout Area End-->
+    <!--Wishlist Area End-->
     <!--Brand Area Start-->
     <div class="brand-area mb-105">
         <div class="container">
@@ -814,12 +695,7 @@
 <script th:src="@{/fe/js/plugins.js}"></script>
 <!--Main Js-->
 <script th:src="@{/fe/js/main.js}"></script>
-<script th:inline="javascript">
-    function handleCheckOutSubmit() {
-        document.getElementById('formCheckOut').submit();
-    }
-</script>
 </body>
 
-<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:50 GMT -->
+<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/wishlist.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:49 GMT -->
 </html>

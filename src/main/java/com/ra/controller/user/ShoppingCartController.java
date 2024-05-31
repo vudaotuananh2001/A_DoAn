@@ -42,8 +42,6 @@ public class ShoppingCartController {
         return "/user/cart";
     }
 
-
-
     @GetMapping("/add/{id}")
     public String addProductCart(@PathVariable("id") Long id){
         Long userId= getUserId();// id đăng nhập
