@@ -171,7 +171,7 @@
                                                 </li>
                                             </ul>
                                             <p class="cart-btn">
-                                                <a href="cart.html">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
+                                                <a th:href="@{/user/shopping-cart}">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
 
                                             <a href="checkout.html">Checkout</a>
                                             </p>
