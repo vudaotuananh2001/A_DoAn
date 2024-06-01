@@ -1,10 +1,13 @@
 package com.ra.controller.user;
 
+import com.ra.models.entity.Order;
 import com.ra.models.entity.ShoppingCart;
 import com.ra.models.entity.User;
 import com.ra.repository.user.OrderRepository;
 import com.ra.security.UserPrincipal;
+import com.ra.service.admin.order.IOrderServiceAdmin;
 import com.ra.service.user.UserService;
+import com.ra.service.user.order.OrderService;
 import com.ra.service.user.shopping_cart.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -24,8 +27,7 @@ public class OrderController {
     @Autowired
     private ShoppingCartService shoppingCartService;
     @Autowired
-    private OrderRepository orderRepository;
-
+    private OrderService  orderService;
     public static Long getUserId() { // lay ra user_id dang nhap
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
@@ -44,6 +46,13 @@ public class OrderController {
         model.addAttribute("user", user);
         model.addAttribute("total", total);
         return "user/order";
+    }
+
+    @GetMapping("/list")
+    public String list (Model model){
+        List<Order> listOrder =orderService.getAllOrder(getUserId());
+        model.addAttribute("listOrder",listOrder);
+        return "user/listorder";
     }
 
 }
