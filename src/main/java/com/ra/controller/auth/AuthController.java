@@ -21,5 +21,4 @@ public class AuthController {
         model.addAttribute("product", product);
         return "details";
     }
-
 }

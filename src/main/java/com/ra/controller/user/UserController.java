@@ -5,6 +5,7 @@ import com.ra.models.entity.Product;
 import com.ra.models.entity.ShoppingCart;
 import com.ra.repository.user.ShoppingCartRepository;
 import com.ra.security.UserPrincipal;
+import com.ra.service.admin.product.IProductService;
 import com.ra.service.auth.IAuthService;
 import com.ra.service.user.UserService;
 import com.ra.service.user.shopping_cart.ShoppingCartService;
@@ -14,6 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -27,6 +29,8 @@ public class UserController {
     private IAuthService authService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private IProductService productService;
     @Autowired
     private ShoppingCartService shoppingCartService;
 
@@ -60,5 +64,21 @@ public class UserController {
         List<Product> productListNewProductFavoriteProduct = authService.getProductByFavoriteProduct(EnumDescriptionProduct.FavoriteProduct);
         model.addAttribute("productListNewProductFavoriteProduct",productListNewProductFavoriteProduct);
         return "user/index";
+    }
+    @GetMapping("/details/{id}")
+    public String details(@PathVariable("id") Long id,
+                          Model model) {
+        Product product = productService.findById(id);
+        model.addAttribute("product", product);
+        List<ShoppingCart> shoppingCartList = shoppingCartService.getAll(getUserId());
+        double total = 0;
+        for (ShoppingCart item: shoppingCartList) {
+            total += item.getProduct().getPrice() * item.getQuantity();
+        }
+        long countById = shoppingCartRepository.count();
+        model.addAttribute("countById",countById);
+        model.addAttribute("shoppingCartList", shoppingCartList);
+        model.addAttribute("total", total);
+        return "user/details";
     }
 }

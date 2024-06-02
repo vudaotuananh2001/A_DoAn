@@ -1,16 +1,15 @@
 <!doctype html>
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>My Account || Plantmore</title>
+    <title>Plantmore - Responsive Bootstrap 5 eCommerce Template</title>
     <meta name="description" content="">
     <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, follow" />
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{fe/img/favicon.ico}">
     <!--All Css Here-->
 
     <!-- Bootstrap CSS-->
@@ -40,7 +39,6 @@
     <link rel="stylesheet" th:href="@{/fe/style.css}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" th:href="@{/fe/css/responsive.css}">
-
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -152,18 +150,18 @@
                                                 <span class="cart-icon">
                                                    <span class="cart-quantity" th:text="${countById}"></span>
                                                 </span>
-                                            <span class="cart-title">Giỏ hàng <br><strong th:text="${total} + '$'"></strong></span>
+                                            <span class="cart-title">Giỏ hàng<br><strong th:text="${total} + '$'"></strong></span>
                                         </a>
                                         <!--Cart Dropdown Start-->
-                                    <!-- <div class="cart-dropdown">
+                                        <div class="cart-dropdown">
                                             <ul th:each="item :${shoppingCartList}">
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img th:src="@{|upload/${item.product.image}|}" alt=""></a>
+                                                        <a href="#"><img th:src="@{|upload/${item.product.image}|}" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h5 class="product-name"><a href="single-product.html" th:text="${item.product.productName}"></a></h5>
-                                                        <span class="cart-price" th:text="${item.quantity} + 'x'+ ${item.product.price}"></span>
+                                                        <h5 class="product-name"><a href="#" th:text="${item.product.productName}"></a></h5>
+                                                        <span class="cart-price" th:text="${item.quantity} + '  '+ 'x'+ '  ' + ${item.product.price}"></span>
                                                     </div>
                                                     <div class="cart-remove">
                                                         <a title="Remove" th:href="@{/user/shopping-cart/delete/{id} (id=${item.id})}"><i class="fa fa-times"></i></a>
@@ -171,11 +169,11 @@
                                                 </li>
                                             </ul>
                                             <p class="cart-btn">
-                                                <a href="cart.html">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
+                                                <a th:href="@{/user/shopping-cart}">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
 
                                             <a href="checkout.html">Checkout</a>
                                             </p>
-                                        </div>-->
+                                        </div>
                                         <!--Cart Dropdown End-->
                                     </div>
                                     <div class="header-search">
@@ -248,170 +246,198 @@
         </div>
     </header>
     <!--Header Area End-->
-    <!--Breadcrumb Tow Start-->
-    <div class="breadcrumb-tow mb-120">
+    <!--Breadcrumb One Start-->
+    <div class="breadcrumb-one mb-120">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="breadcrumb-title">
-                        <h1>Tài Khoản Của Tôi</h1>
+                    <div class="breadcrumb-img">
+                        <img th:src="@{/fe/img/page-banner/product-banner.jpg}" alt="">
                     </div>
-                    <div class="breadcrumb-content breadcrumb-content-tow">
+                    <div class="breadcrumb-content">
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li class="active">My Account</li>
+                            <li class="active">Single Product</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Breadcrumb Tow End-->
-    <!--My Account Area Strat-->
-    <div class="my-account white-bg mb-110">
+    <!--Breadcrumb One End-->
+    <!--Single Product Area Start-->
+    <div class="single-product-area mb-115">
         <div class="container">
-            <div class="account-dashboard">
-                <div class="dashboard-upper-info">
-                    <div class="row align-items-center g-0">
-                        <div class="col-lg-3 col-md-12">
-                            <div class="d-single-info">
-                                <p class="user-name">Hello <span sec:authentication="principal.user.fullName"></span></p>
+            <div class="row">
+                <div class="col-md-12 col-lg-5" th:object="${product}">
+                    <div class="product-details-img-tab">
+                        <!--Product Tab Content Start-->
+                        <div class="tab-content single-product-img">
+                            <div class="tab-pane fade show active" id="product1">
+                                <div class="product-large-thumb img-full">
+                                    <div class="easyzoom easyzoom--overlay">
+                                        <a th:href="@{|/upload/${product.image}|}">
+                                            <img th:src="@{|/upload/${product.image}|}" alt="">
+                                        </a>
+                                        <a th:href="@{|/upload/${product.image}|}" class="popup-img venobox" data-gall="myGallery"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="d-single-info">
-                                <p>Cần sự trợ giúp? Dịch vụ khách hàng tại.</p>
-                                <p>admin@devitems.com.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-12">
-                            <div class="d-single-info">
-                                <p>Gửi email tại</p>
-                                <p>support@yoursite.com</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-12">
-                            <div class="d-single-info text-lg-center">
-                                <a class="view-cart" th:href="@{/user/shopping-cart}"><i class="fa fa-cart-plus"></i>view cart</a>
-                            </div>
-                        </div>
+                        <!--Product Tab Content End-->
+                        <!--Product Tab Menu Start-->
+                        <!--Product Tab Menu End-->
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-2">
-                        <!-- Nav tabs -->
-                        <ul class="nav flex-column dashboard-list" role="tablist">
-                            <li><a class="nav-link active" data-bs-toggle="tab" href="#dashboard">Bảng điều khiển</a></li>
-                            <li> <a class="nav-link" data-bs-toggle="tab" href="#orders">Đạt hàng</a></li>
-                            <li><a class="nav-link" data-bs-toggle="tab" href="#downloads">Downloads</a></li>
-                            <li><a class="nav-link" data-bs-toggle="tab" href="#address">Địa chỉ</a></li>
-                            <li><a class="nav-link" data-bs-toggle="tab" href="#account-details">Chi tiết tài khoản</a></li>
-                            <li><a class="nav-link" href="/login">Đăng xuất</a></li>
-                        </ul>
+                <div class="col-md-12 col-lg-7">
+                    <!--Product Details Content Start-->
+                    <div class="product-details-content">
+                        <!--Product Nav Start-->
+                        <div class="product-nav">
+                            <a href="#"><i class="fa fa-angle-left"></i></a>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                        <!--Product Nav End-->
+                        <h2 th:text="${product.productName}"></h2>
+                        <div class="single-product-reviews">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <a class="review-link" href="#">(1 customer review)</a>
+                        </div>
+                        <div class="single-product-price">
+                            <span class="price new-price"></span>
+                            <span class="regular-price"  th:text="${product.price} +' $'" ></span>
+                        </div>
+                        <div class="product-description">
+                            <p th:text="${product.detail}"></p>
+                        </div>
+                        <p class="stock in-stock" th:text="' Số lượng còn :' +${product.quantity}" ></p>
+                        <div class="single-product-quantity">
+                            <form class="add-quantity" action="#">
+                                <div class="product-quantity">
+                                    <input value="1" type="number">
+                                </div>
+                                <div class="add-to-link">
+                                    <button class="product-btn"  onclick="addToCart(this)">add to cart</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="wishlist-compare-btn">
+                            <a href="#" class="wishlist-btn">Add to Wishlist</a>
+                            <a href="#" class="add-compare">Compare</a>
+                        </div>
+                        <div class="product-meta">
+                                <span class="posted-in">
+                                        Categories:
+		                                <a href="#">Accessories</a>,
+		                                <a href="#">Electronics</a>
+		                            </span>
+                        </div>
+                        <div class="single-product-sharing">
+                            <h3>Share this product</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-12 col-lg-10">
-                        <!-- Tab panes -->
-                        <div class="tab-content dashboard-content">
-                            <div id="dashboard" class="tab-pane fade show active">
-                                <h3>Bảng điều khiển </h3>
-                                <p>Từ bảng điều khiển tài khoản của bạn. bạn có thể dễ dàng kiểm tra và xem Đơn hàng gần đây của mình, quản lý Địa chỉ giao hàng và thanh toán cũng như Chỉnh sửa mật khẩu và chi tiết tài khoản của bạn.</p>
-                            </div>
-                            <div id="orders" class="tab-pane fade">
-                                <h3>Đơn hàng</h3>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>Order</th>
-                                            <th>Ngày đặt</th>
-                                            <th>Trạng thái</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Chi tiết</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody th:each="iteam : ${orderList}">
-                                            <tr>
-                                                <td th:text="${iteam.id}"></td>
-                                                <td th:text="${iteam.sentDate}"></td>
-                                                <td th:text="${iteam.statusEnum == 'waitting' ? 'Đang đợi' : 'Đã nhận'}"></td>
-                                                <td th:text="${iteam.orderPrice}"></td>
-                                                <td><a class="view" href="cart.html">view</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                    <!--Product Details Content End-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Single Product Area End-->
+    <!--Product Description Review Area Start-->
+    <div class="product-description-review-area mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-review-tab">
+                        <!--Review And Description Tab Menu Start-->
+                        <ul class="nav dec-and-review-menu">
+                            <li>
+                                <a class="active" data-bs-toggle="tab" href="#description">Lời cảm ơn </a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#reviews">Đánh giá (1)</a>
+                            </li>
+                        </ul>
+                        <!--Review And Description Tab Menu End-->
+                        <!--Review And Description Tab Content Start-->
+                        <div class="tab-content product-review-content-tab" id="myTabContent-4">
+                            <div class="tab-pane fade active show" id="description">
+                                <div class="single-product-description">
+                                    <p>Chúng tôi xin gửi lời cảm ơn chân thành đến anh/chị đã dành thời gian quý báu để xem qua sản phẩm hoa của chúng tôi. Sự quan tâm và quyết định của anh/chị không chỉ là nguồn động viên lớn lao mà còn là động lực quan trọng giúp chúng tôi phát triển và cung cấp những sản phẩm chất lượng tốt nhất đến với khách hàng.</p>
+                                    <p>Hoa luôn là biểu tượng của tình yêu, sự quan tâm và sự chăm sóc. Chúng tôi hy vọng rằng sản phẩm hoa của chúng tôi sẽ mang đến cho anh/chị những trải nghiệm đầy ý nghĩa và hạnh phúc, góp phần làm cho mỗi khoảnh khắc của cuộc sống trở nên đẹp đẽ và đáng nhớ.</p>
+                                    <p>Ngoài ra, trong dịp đặc biệt này, chúng tôi muốn dành tặng lời chúc mừng và những lời yêu thương đến người quan trọng của anh/chị. Mong rằng ngày quan trọng này sẽ là một kỷ niệm đáng nhớ và ý nghĩa trong cuộc đời của họ.</p>
+                                    <p>Xin chân thành cảm ơn và mong rằng chúng ta sẽ có cơ hội được phục vụ anh/chị trong tương lai.</p>
                                 </div>
                             </div>
-                            <div id="downloads" class="tab-pane fade">
-                                <h3>Downloads</h3>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Downloads</th>
-                                            <th>Expires</th>
-                                            <th>Download</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>Haven - Free Real Estate PSD Template</td>
-                                            <td>May 10, 2022</td>
-                                            <td>never</td>
-                                            <td><a class="view" href="#">Click Here To Download Your File</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nevara - ecommerce html template</td>
-                                            <td>Sep 11, 2022</td>
-                                            <td>never</td>
-                                            <td><a class="view" href="#">Click Here To Download Your File</a></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div id="address" class="tab-pane">
-                                <p>Các địa chỉ sau sẽ được sử dụng trên trang thanh toán theo mặc định.</p>
-                                <h4 class="billing-address">Billing address</h4>
-                                <a class="view" href="#">edit</a>
-                                <p>Nia Matos</p>
-                                <p>Australia</p>
-                            </div>
-                            <div id="account-details" class="tab-pane fade">
-                                <h3>Account details </h3>
-                                <div class="login">
-                                    <div class="login-form-container">
-                                        <div class="account-login-form">
-                                            <form action="#">
-                                                <p>Already have an account? <a href="#">Log in instead!</a></p>
-                                                <label>Social title</label>
-                                                <div class="input-radio">
-                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mr.</span>
-                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mrs.</span>
+                            <div class="tab-pane fade" id="reviews">
+                                <div class="review-page-comment">
+                                    <h2>1 ĐÁNH GIÁ </h2>
+                                    <ul>
+                                        <li>
+                                            <div class="product-comment">
+                                                <img th:src="@{fe/img/icon/author.png}" alt="">
+                                                <div class="product-comment-content">
+                                                    <div class="product-reviews">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                    <p class="meta">
+                                                        <strong>admin</strong> - <span>November 22, 2023</span>
+                                                    <div class="description">
+                                                        <p>Sản phẩm tốt</p>
+                                                    </div>
                                                 </div>
-                                                <label>First Name</label>
-                                                <input name="first-name" type="text">
-                                                <label>Last Name</label>
-                                                <input name="last-name" type="text">
-                                                <label>Email</label>
-                                                <input name="email-name" type="text">
-                                                <label>Password</label>
-                                                <input name="user-password" type="password">
-                                                <label>Birthdate</label>
-                                                <input name="birthday" value="" placeholder="MM/DD/YYYY" type="text">
-                                                <span class="example">
-                                                      (E.g.: 05/31/1970)
-                                                    </span>
-                                                <span class="custom-checkbox">
-                                                        <input name="optin" value="1" type="checkbox">
-                                                        <label>Receive offers from our partners</label>
-                                                    </span>
-                                                <span class="custom-checkbox">
-                                                        <input name="newsletter" value="1" type="checkbox">
-                                                        <label>Sign up for our newsletter<br><em>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</em></label>
-                                                    </span>
-                                                <div class="button-box">
-                                                    <button type="submit" class="default-btn">save</button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="review-form-wrapper">
+                                        <div class="review-form">
+                                            <span class="comment-reply-title">Thêm một bài đánh giá </span>
+                                            <form action="#">
+                                                <p class="comment-notes">
+                                                    <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố. </span>
+                                                    Các trường bắt buộc được đánh dấu
+                                                    <span class="required">*</span>
+                                                </p>
+                                                <div class="comment-form-rating">
+                                                    <label>Đánh giá của bạn</label>
+                                                    <div class="rating">
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="input-element">
+                                                    <div class="comment-form-comment">
+                                                        <label>Comment</label>
+                                                        <textarea name="message" cols="40" rows="8"></textarea>
+                                                    </div>
+                                                    <div class="review-comment-form-author">
+                                                        <label>Name </label>
+                                                        <input required="required" type="text">
+                                                    </div>
+                                                    <div class="review-comment-form-email">
+                                                        <label>Email </label>
+                                                        <input required="required" type="text">
+                                                    </div>
+                                                    <div class="comment-submit">
+                                                        <button type="submit" class="form-button">Submit</button>
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>
@@ -419,12 +445,18 @@
                                 </div>
                             </div>
                         </div>
+                        <!--Review And Description Tab Content End-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--My Account Area End-->
+    <!--Product Description Review Area Start-->
+    <!--Also Like Product Start-->
+    <!--Also Like Product End-->
+    <!--Related Product Start-->
+
+    <!--Related Product End-->
     <!--Brand Area Start-->
     <div class="brand-area mb-105">
         <div class="container">
@@ -433,42 +465,42 @@
                     <div class="brand-active">
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand1.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand1.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand2.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand2.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand3.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand3.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand4.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand4.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand5.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand5.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand2.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand3.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand1.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand4.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img th:src="@{/fe/img/brand/brand3.png}" alt=""></a>
+                            <a href="#"><img th:src="@{fe/img/brand/brand5.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                     </div>
@@ -619,7 +651,7 @@
                         <div class="col-md-12">
                             <!--Footer Payment Start-->
                             <div class="footer-payments-image">
-                                <img th:src="@{/fe/img/payment/payment-icon.png}" alt="">
+                                <img th:src="@{fe/img/payment/payment-icon.png}" alt="">
                             </div>
                             <!--Footer Payment End-->
                             <!--Footer Menu Start-->
@@ -664,70 +696,48 @@
                                 <div class="tab-pane fade show active" id="single-slide1" role="tabpanel" aria-labelledby="single-slide-tab-1">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img src="img/single-product/large/single-product1.jpg" alt="">
+                                        <img th:src="@{fe/img/single-product/large/single-product1.jpg}" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide2" role="tabpanel" aria-labelledby="single-slide-tab-2">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img src="img/single-product/large/single-product2.jpg" alt="">
+                                        <img th:src="@{fe/img/single-product/large/single-product2.jpg}" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide3" role="tabpanel" aria-labelledby="single-slide-tab-3">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img src="img/single-product/large/single-product3.jpg" alt="">
+                                        <img th:src="@{fe/img/single-product/large/single-product3.jpg}" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide4" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img src="img/single-product/large/single-product4.jpg" alt="">
+                                        <img th:src="@{fe/img/single-product/large/single-product4.jpg}" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide5" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img src="img/single-product/large/single-product5.jpg" alt="">
+                                        <img th:src="@{fe/img/single-product/large/single-product5.jpg}" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                                 <div class="tab-pane fade" id="single-slide6" role="tabpanel" aria-labelledby="single-slide-tab-4">
                                     <!--Single Product Image Start-->
                                     <div class="single-product-img img-full">
-                                        <img src="img/single-product/large/single-product6.jpg" alt="">
+                                        <img th:src="@{fe/img/single-product/large/single-product6.jpg}" alt="">
                                     </div>
                                     <!--Single Product Image End-->
                                 </div>
                             </div>
                             <!--Modal Content End-->
                             <!--Modal Tab Menu Start-->
-                            <div class="single-product-menu">
-                                <div class="nav single-slide-menu owl-carousel" role="tablist">
-                                    <div class="single-tab-menu img-full">
-                                        <a class="active" data-bs-toggle="tab" id="single-slide-tab-1" href="#single-slide1"><img src="img/single-product/small/single-product1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-tab-menu img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-2" href="#single-slide2"><img src="img/single-product/small/single-product2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-tab-menu img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-3" href="#single-slide3"><img src="img/single-product/small/single-product3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-tab-menu img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-4" href="#single-slide4"><img src="img/single-product/small/single-product4.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-tab-menu img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-5" href="#single-slide5"><img src="img/single-product/small/single-product5.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-tab-menu img-full">
-                                        <a data-bs-toggle="tab" id="single-slide-tab-6" href="#single-slide6"><img src="img/single-product/small/single-product6.jpg" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
                             <!--Modal Tab Menu End-->
                         </div>
                         <!--Modal Img-->
@@ -779,8 +789,6 @@
 
 
 <!--All Js Here-->
-
-<!--Jquery 3.6.0-->
 <script th:src="@{/fe/js/vendor/modernizr-3.6.0.min.js}"></script>
 <script th:src="@{/fe/js/vendor/jquery-3.6.0.min.js}"></script>
 <script th:src="@{/fe/js/vendor/jquery-migrate-3.3.2.min.js}"></script>
@@ -817,10 +825,42 @@
 <!--Countdown-->
 <script th:src="@{/fe/js/jquery.countdown.min.js}"></script>
 <!--Plugins-->
-<script th:src="@{/fe/js/plugins.js}"></script>
+<script th:src="@{fe/js/plugins.js}"></script>
 <!--Main Js-->
 <script th:src="@{/fe/js/main.js}"></script>
+
+<script>
+    function addToCart() {
+        // Lấy URL của trang hiện tại
+        const pathname = window.location.pathname;
+
+        // Giả định URL có dạng /user/details/{id}
+        const pathSegments = pathname.split('/');
+        const itemId = pathSegments[pathSegments.length - 1]; // Lấy phần tử cuối cùng từ URL
+
+        const url = `/user/shopping-cart/add/${itemId}`;
+
+        fetch(url, {
+            method: 'POST', // Hoặc 'POST' nếu controller của bạn yêu cầu phương thức POST
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Item added to cart successfully');
+                    // Thêm hành động khác nếu cần, ví dụ: hiển thị thông báo thành công
+                } else {
+                    console.error('Failed to add item to cart');
+                    // Thêm hành động khác nếu cần, ví dụ: hiển thị thông báo lỗi
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Xử lý lỗi nếu cần
+            });
+    }
+</script>
+
+
 </body>
 
-<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/my-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:51 GMT -->
+<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:47 GMT -->
 </html>

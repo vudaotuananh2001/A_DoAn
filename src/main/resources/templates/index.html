@@ -57,8 +57,8 @@
                         <!--Header Logo Start-->
                         <div class="col-lg-3 col-md-3">
                             <div class="logo-area">
-                                <a href="index.html">
-                                    <img src="img/logo/logo.png" alt="">
+                                <a th:href="@{/}">
+                                    <img th:src="@{/fe/img/logo/logo.png}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -69,10 +69,10 @@
                             <div class="header-menu">
                                 <nav>
                                     <ul class="main-menu">
-                                        <li><a href="index.html">home</a>
+                                        <li><a th:href="@{/}">home</a>
                                             <!--Dropdown Menu Start-->
                                             <ul class="dropdown">
-                                                <li><a href="index.html">Home Page One</a></li>
+                                                <li><a href="#">Home Page One</a></li>
                                                 <li><a href="#">Home Page Two</a></li>
                                                 <li><a href="#">Home Page Three</a></li>
                                                 <li><a href="#">Home Page Four</a></li>
@@ -152,7 +152,7 @@
                                                 <span class="cart-icon">
                                                    <span class="cart-quantity">2</span>
                                                 </span>
-                                            <span class="cart-title">Your cart <br><strong>$190.00</strong></span>
+                                            <span class="cart-title">Giỏ haàng <br><strong>$190.00</strong></span>
                                         </a>
                                         <!--Cart Dropdown Start-->
                                         <div class="cart-dropdown">
@@ -184,8 +184,8 @@
                                             </ul>
                                             <p class="cart-subtotal"><strong>Subtotal:</strong> <span class="float-right">$190.00</span></p>
                                             <p class="cart-btn">
-                                                <a href="cart.html">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
+                                                <a href="/login">View cart</a>
+                                                <a href="/login">Checkout</a>
                                             </p>
                                         </div>
                                         <!--Cart Dropdown End-->
@@ -206,11 +206,11 @@
                                             <a href="#"><i class="fa fa-th"></i></a>
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="cart.html">Shopping cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login">Log In</a></li>
+                                                    <li><a th:href="@{/user/account}">Tài Khoản Của Tôi</a></li>
+                                                    <li><a th:href="@{/user/wishlist}">Yêu thích</a></li>
+                                                    <li><a th:href="@{/user/shopping-cart}">Giỏ hàng</a></li>
+                                                    <li><a th:href="@{/user/checkout}">Đặt hàng</a></li>
+                                                    <li><a href="/login">Đăng nhập</a></li>
                                                 </ul>
                                                 <div class="switcher">
                                                     <div class="language">
@@ -443,8 +443,8 @@
                                 <div class="product-action">
                                     <ul>
                                         <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
+                                        <li><a href="/login" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a href="/login" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -490,8 +490,8 @@
                                 <div class="product-action">
                                     <ul>
                                         <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
+                                        <li><a href="/login" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a href="/login" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -537,8 +537,8 @@
                                 <div class="product-action">
                                     <ul>
                                         <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
+                                        <li><a href="/login" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a href="/login" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -764,42 +764,42 @@
                     <div class="brand-active">
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand1.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand1.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand2.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand2.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand3.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand3.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand4.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand4.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand5.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand5.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand3.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand2.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand4.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand1.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand5.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand3.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                     </div>

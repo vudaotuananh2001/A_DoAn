@@ -69,10 +69,10 @@
                             <div class="header-menu">
                                 <nav>
                                     <ul class="main-menu">
-                                        <li><a href="index.html">home</a>
-                                            <!--Dropdown Menu Start-->
-                                            <ul class="dropdown">
-                                                <li><a href="index.html">Home Page One</a></li>
+                                        <<li><a th:href="@{/user}">home</a>
+                                        <!--Dropdown Menu Start-->
+                                        <ul class="dropdown">
+                                            <li><a href="#">Home Page One</a></li>
                                                 <li><a href="#">Home Page Two</a></li>
                                                 <li><a href="#">Home Page Three</a></li>
                                                 <li><a href="#">Home Page Four</a></li>
@@ -152,18 +152,18 @@
                                                 <span class="cart-icon">
                                                    <span class="cart-quantity" th:text="${countById}"></span>
                                                 </span>
-                                            <span class="cart-title">Your cart <br><strong th:text="${total} + '$'"></strong></span>
+                                            <span class="cart-title">Giỏ hàng<br><strong th:text="${total} + '$'"></strong></span>
                                         </a>
                                         <!--Cart Dropdown Start-->
                                         <div class="cart-dropdown">
                                             <ul th:each="item :${shoppingCartList}">
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img th:src="@{|upload/${item.product.image}|}" alt=""></a>
+                                                        <a href="#"><img th:src="@{|upload/${item.product.image}|}" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h5 class="product-name"><a href="single-product.html" th:text="${item.product.productName}"></a></h5>
-                                                        <span class="cart-price" th:text="${item.quantity} + 'x'+ ${item.product.price}"></span>
+                                                        <h5 class="product-name"><a href="#" th:text="${item.product.productName}"></a></h5>
+                                                        <span class="cart-price" th:text="${item.quantity} + '  '+ 'x'+ '  ' + ${item.product.price}"></span>
                                                     </div>
                                                     <div class="cart-remove">
                                                         <a title="Remove" th:href="@{/user/shopping-cart/delete/{id} (id=${item.id})}"><i class="fa fa-times"></i></a>
@@ -195,10 +195,10 @@
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
                                                     <li><a th:href="@{/user/account}" sec:authentication="principal.user.fullName"></a></li>
-                                                    <li><a th:href="@{/user/wishlist}">Wishlist</a></li>
-                                                    <li><a th:href="@{/user/shopping-cart}">Shopping cart</a></li>
-                                                    <li><a th:href="@{/user/checkout}">Checkout</a></li>
-                                                    <li><a href="/login">Log In</a></li>
+                                                    <li><a th:href="@{/user/wishlist}">Yêu thích</a></li>
+                                                    <li><a th:href="@{/user/shopping-cart}">Giỏ hàng</a></li>
+                                                    <li><a th:href="@{/user/checkout}">Đặt hàng</a></li>
+                                                    <li><a href="/login">Đăng nhập</a></li>
                                                 </ul>
                                                 <div class="switcher">
                                                     <div class="language">
@@ -425,20 +425,20 @@
                         <!--Single Product Start-->
                         <div class="single-product mb-25">
                             <div class="product-img img-full">
-                                <a th:href="@{/auth/details/{id} (id=${iteam.id})}">
+                                <a th:href="@{/user/details/{id} (id=${iteam.id})}">
                                     <img th:src="@{|/upload/${iteam.image}|}" width="auto">
                                 </a>
                                 <span class="onsale">Sale!</span>
                                 <div class="product-action">
                                     <ul>
-                                        <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                        <li><a th:href="@{/user/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
                                         <li><a th:href="@{/user/wishlist/add/{id} (id= ${iteam.id})}" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
                                         <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h2><a th:href="@{/auth/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
+                                <h2><a th:href="@{/user/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
                                 <div class="product-price">
                                     <div class="price-box">
                                         <span class="regular-price" th:text="${iteam.price} +' $'"></span>
@@ -472,20 +472,20 @@
                         <!--Single Product Start-->
                         <div class="single-product mb-25">
                             <div class="product-img img-full">
-                                <a th:href="@{/auth/details/{id} (id=${iteam.id})}">
+                                <a th:href="@{/user/details/{id} (id=${iteam.id})}">
                                     <img th:src="@{|/upload/${iteam.image}|}" width="auto">
                                 </a>
                                 <span class="onsale">Sale!</span>
                                 <div class="product-action">
                                     <ul>
-                                        <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                        <li><a th:href="@{/user/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
                                         <li><a th:href="@{/user/wishlist/add/{id} (id= ${iteam.id})}" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
                                         <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h2><a th:href="@{/auth/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
+                                <h2><a th:href="@{/user/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
                                 <div class="product-price">
                                     <div class="price-box">
                                         <span class="regular-price" th:text="${iteam.price} +' $'"></span>
@@ -519,20 +519,20 @@
                         <!--Single Product Start-->
                         <div class="single-product mb-25">
                             <div class="product-img img-full">
-                                <a th:href="@{/auth/details/{id} (id=${iteam.id})}">
+                                <a th:href="@{/user/details/{id} (id=${iteam.id})}">
                                     <img th:src="@{|/upload/${iteam.image}|}" width="auto">
                                 </a>
                                 <span class="onsale">Sale!</span>
                                 <div class="product-action">
                                     <ul>
-                                        <li><a th:href="@{/auth/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                        <li><a th:href="@{/user/details/{id} (id=${iteam.id})}" data-bs-toggle="modal" title="Quick view"><i class="fa fa-search"></i></a></li>
                                         <li><a th:href="@{/user/wishlist/add/{id} (id= ${iteam.id})}" title="Whishlist"><i class="fa fa-heart-o"></i></a></li>
                                         <li><a href="#" title="Compare"><i class="fa fa-refresh"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h2><a th:href="@{/auth/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
+                                <h2><a th:href="@{/user/details/{id} (id=${iteam.id})}" th:text="${iteam.productName}"></a></h2>
                                 <div class="product-price">
                                     <div class="price-box">
                                         <span class="regular-price" th:text="${iteam.price} +' $'"></span>

@@ -56,11 +56,11 @@
                         <!--Header Logo Start-->
                         <div class="col-lg-3 col-md-3">
                             <div class="logo-area">
-                                <a href="index.html">
-                                    <img th:src="@{img/logo/logo.png}" alt="">
+                                <a th:href="@{/}">
+                                    <img th:src="@{/fe/img/logo/logo.png}" alt="">
                                 </a>
                             </div>
-                        </div>
+                            </div>
                         <!--Header Logo End-->
                         <!--Header Menu And Mini Cart Start-->
                         <div class="col-lg-9 col-md-9 text-lg-right">
@@ -68,10 +68,10 @@
                             <div class="header-menu">
                                 <nav>
                                     <ul class="main-menu">
-                                        <li><a href="index.html">home</a>
+                                        <li><a th:href="@{/}">home</a>
                                             <!--Dropdown Menu Start-->
                                             <ul class="dropdown">
-                                                <li><a href="index.html">Home Page One</a></li>
+                                                <li><a href="#">Home Page One</a></li>
                                                 <li><a href="#">Home Page Two</a></li>
                                                 <li><a href="#">Home Page Three</a></li>
                                                 <li><a href="#">Home Page Four</a></li>
@@ -158,7 +158,7 @@
                                             <ul>
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img src="img/cart/cart1.jpg" alt=""></a>
+                                                        <a href="single-product.html"><img th:src="@{fe/img/cart/cart1.jpg}" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h5 class="product-name"><a href="single-product.html">Odio tortor consequat</a></h5>
@@ -170,7 +170,7 @@
                                                 </li>
                                                 <li class="single-cart-item">
                                                     <div class="cart-img">
-                                                        <a href="single-product.html"><img src="img/cart/cart2.jpg" alt=""></a>
+                                                        <a href="single-product.html"><img th:src="@{fe/img/cart/cart2.jpg}" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h5 class="product-name"><a href="single-product.html">Auctor sem</a></h5>
@@ -183,8 +183,8 @@
                                             </ul>
                                             <p class="cart-subtotal"><strong>Subtotal:</strong> <span class="float-right">$190.00</span></p>
                                             <p class="cart-btn">
-                                                <a href="cart.html">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
+                                                <a href="/login">View cart</a>
+                                                <a href="/login">Checkout</a>
                                             </p>
                                         </div>
                                         <!--Cart Dropdown End-->
@@ -205,11 +205,11 @@
                                             <a href="#"><i class="fa fa-th"></i></a>
                                             <div class="currency-dropdown">
                                                 <ul class="menu-top-menu">
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="cart.html">Shopping cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login-register.html">Log In</a></li>
+                                                    <li><a th:href="@{/user/account}">Tài Khoản Của Tôi</a></li>
+                                                    <li><a th:href="@{/user/wishlist}">Yêu thích</a></li>
+                                                    <li><a th:href="@{/user/shopping-cart}">Giỏ hàng</a></li>
+                                                    <li><a th:href="@{/user/checkout}">Đặt hàng</a></li>
+                                                    <li><a href="/login">Đăng nhập</a></li>
                                                 </ul>
                                                 <div class="switcher">
                                                     <div class="language">
@@ -265,7 +265,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-title">
-                        <h1>Login - Register</h1>
+                        <h1>Đăng nhập - Đăng ký </h1>
                     </div>
                     <div class="breadcrumb-content breadcrumb-content-tow">
                         <ul>
@@ -286,7 +286,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="customer-login-register">
                         <div class="form-login-title">
-                            <h2>Login</h2>
+                            <h2>Đăng nhập</h2>
                         </div>
                         <div class="login-form">
                             <form action="/login" method="post">
@@ -317,7 +317,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="customer-login-register register-pt-0">
                         <div class="form-register-title">
-                            <h2>Register</h2>
+                            <h2>Đăng ký tài khoản</h2>
                         </div>
                         <div class="register-form">
                             <form action="/register" method="post" th:object="${user}">
@@ -365,42 +365,42 @@
                     <div class="brand-active">
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand1.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand1.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand2.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand2.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand3.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand3.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand4.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand4.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand5.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand5.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand3.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand2.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand4.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand1.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                         <!--Single Brand Start-->
                         <div class="single-brand img-full">
-                            <a href="#"><img src="img/brand/brand5.png" alt=""></a>
+                            <a href="#"><img th:src="@{/fe/img/brand/brand3.png}" alt=""></a>
                         </div>
                         <!--Single Brand End-->
                     </div>
