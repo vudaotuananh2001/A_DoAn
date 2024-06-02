@@ -291,11 +291,11 @@
                         <div class="login-form">
                             <form action="/login" method="post">
                                 <div class="form-fild">
-                                    <p><label>Username or email address <span class="required">*</span></label></p>
+                                    <p><label>Tài Khoản <span class="required">*</span></label></p>
                                     <input name="username" value="" type="text">
                                 </div>
                                 <div class="form-fild">
-                                    <p><label>Password <span class="required">*</span></label></p>
+                                    <p><label>Mật Khẩu <span class="required">*</span></label></p>
                                     <input name="password" value="" type="password">
                                 </div>
                                 <div class="login-submit">
@@ -322,11 +322,11 @@
                         <div class="register-form">
                             <form action="/register" method="post" th:object="${user}">
                                 <div class="form-fild">
-                                    <p><label>FullName <span class="required">*</span></label></p>
+                                    <p><label>Họ và tên <span class="required">*</span></label></p>
                                     <input  th:field="*{fullName}"  type="text">
                                 </div>
                                 <div class="form-fild">
-                                    <p><label>Address <span class="required">*</span></label></p>
+                                    <p><label>Địa chỉ  <span class="required">*</span></label></p>
                                     <input  th:field="*{address}" type="text">
                                 </div>
                                 <div class="form-fild">
@@ -334,19 +334,19 @@
                                     <input  th:field="*{email}" type="email">
                                 </div>
                                 <div class="form-fild">
-                                    <p><label>Phone <span class="required">*</span></label></p>
+                                    <p><label>Số điện thoại <span class="required">*</span></label></p>
                                     <input th:field="*{phone}" type="text">
                                 </div>
                                 <div class="form-fild">
-                                    <p><label>Username<span class="required">*</span></label></p>
+                                    <p><label>Tên tài khoản<span class="required">*</span></label></p>
                                     <input th:field="*{userName}" value="" type="text">
                                 </div>
                                 <div class="form-fild">
-                                    <p><label>Password <span class="required">*</span></label></p>
+                                    <p><label>Mật khẩu <span class="required">*</span></label></p>
                                     <input th:field="*{password}" type="password">
                                 </div>
                                 <div class="register-submit">
-                                    <button type="submit" class="form-button">Register</button>
+                                    <button type="submit" class="form-button">Đăng ký</button>
                                 </div>
                             </form>
                         </div>

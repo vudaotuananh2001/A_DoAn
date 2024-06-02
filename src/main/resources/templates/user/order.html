@@ -234,11 +234,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-title">
-                        <h1>Checkout</h1>
+                        <h1>Đơn Hàng</h1>
                     </div>
                     <div class="breadcrumb-content breadcrumb-content-tow">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a th:href="@{/user}">Home</a></li>
                             <li class="active">Checkout</li>
                         </ul>
                     </div>
@@ -341,7 +341,7 @@
                                 <thead>
                                 <tr>
                                     <th class="cart-product-name">Sản phẩm</th>
-                                    <th class="cart-product-total">Tổng tiê</th>
+                                    <th class="cart-product-total">Tổng tiên của sản phẩm</th>
                                 </tr>
                                 </thead>
                                 <tbody th:each="ieam :${shoppingCartList}">
@@ -352,7 +352,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr class="cart-subtotal">
-                                    <th>Tổng tiền</th>
+                                    <th>Tổng đơn</th>
                                     <td><span class="amount" th:text="${total}"></span></td>
                                 </tr>
                                 </tfoot>
@@ -372,7 +372,7 @@
                                         <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
                                             <div class="card-body">
                                                 <p>Thực hiện thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn hàng của bạn làm tài liệu tham khảo thanh toán. Đơn đặt hàng của bạn sẽ không được giao cho đến khi tiền đã được xóa trong tài khoản của chúng tôi.</p>
-                                                <p>Cảm ơn bạn đã dặt hàng bên Shop.</p>
+                                                <p>Cảm ơn bạn đã đặt hàng bên Shop.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -386,7 +386,7 @@
                                         </div>
                                         <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
                                             <div class="card-body">
-                                                <p>Cảm ơn bạn đã dặt hàng bên Shop.</p>
+                                                <p>Cảm ơn bạn đã đặt hàng bên Shop.</p>
                                             </div>
                                         </div>
                                     </div>

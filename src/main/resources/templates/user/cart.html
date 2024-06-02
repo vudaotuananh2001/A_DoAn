@@ -236,7 +236,7 @@
                     </div>
                     <div class="breadcrumb-content breadcrumb-content-tow">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a th:href="@{/user}">Home</a></li>
                             <li class="active">Shopping Cart</li>
                         </ul>
                     </div>
@@ -281,28 +281,28 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="coupon-all">
-                                    <div class="coupon">
-                                        <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
-                                        <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
-                                    </div>
-                                    <div class="coupon2">
-                                        <input class="button" name="update_cart" value="Update cart" type="submit">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                        <div class="row">-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="coupon-all">-->
+<!--                                    <div class="coupon">-->
+<!--                                        <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">-->
+<!--                                        <input class="button" name="apply_coupon" value="Apply coupon" type="submit">-->
+<!--                                    </div>-->
+<!--                                    <div class="coupon2">-->
+<!--                                        <input class="button" name="update_cart" value="Update cart" type="submit">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="row">
                             <div class="col-md-5 ml-auto">
                                 <div class="cart-page-total">
-                                    <h2>Cart totals</h2>
+                                    <h2>Tổng tiền của giỏ hàng</h2>
                                     <ul>
-                                        <li>Subtotal <span th:text="${total}"></span></li>
-                                        <li>Total <span th:text="${total}"></span></li>
+                                        <li> Chiết khấu <span>0%</span></li>
+                                        <li>Tổng tiền <span th:text="${total}"></span></li>
                                     </ul>
-                                    <a th:href="@{/user/order}">Proceed to checkout</a>
+                                    <a th:href="@{/user/order}">Xác nhận</a>
                                 </div>
                             </div>
                         </div>
@@ -455,7 +455,7 @@
                             <!--Single Footer Widget Start-->
                             <div class="single-footer-widget mb-30">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img th:src="@{fe/img/logo/logo-footer.png}" alt=""></a>
+                                    <a th:href="@{/user}"><img th:src="@{/fe/img/logo/logo-footer.png}" alt=""></a>
                                 </div>
                             </div>
                             <!--Single Footer Widget End-->
