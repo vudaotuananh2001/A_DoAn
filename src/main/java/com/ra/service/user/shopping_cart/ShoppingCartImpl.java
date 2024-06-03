@@ -31,19 +31,37 @@ public class ShoppingCartImpl implements ShoppingCartService {
     }
 
     @Override
-    public ShoppingCart add(ShoppingCartRequest shoppingCartRequest,Long userId) {
-        Product product  = productService.findById(shoppingCartRequest.getProductId());
-        User user = userService.findById(userId);
-        ShoppingCart shoppingCart =  ShoppingCart.builder()
-                .product(product)
-                .user(user)
-                .quantity(shoppingCartRequest.getQuantity())
-                .build();
-        return shoppingCartRepository.save(shoppingCart);
+    public ShoppingCart add(ShoppingCartRequest shoppingCartRequest, Long userId) {
+        Product product = productService.findById(shoppingCartRequest.getProductId());
+        ShoppingCart existingCart = shoppingCartRepository.findByUserIdAndProductId(userId, shoppingCartRequest.getProductId());
+
+        if (existingCart != null) {
+            existingCart.setQuantity(existingCart.getQuantity() + 1);
+            shoppingCartRepository.save(existingCart);
+        } else {
+            if (product.getQuantity() < shoppingCartRequest.getQuantity()) {
+                throw new RuntimeException("Số lượng không đủ");
+            }
+            User user = userService.findById(userId);
+            ShoppingCart shoppingCart = ShoppingCart.builder()
+                    .product(product)
+                    .user(user)
+                    .quantity(shoppingCartRequest.getQuantity())
+                    .build();
+            existingCart = shoppingCartRepository.save(shoppingCart); // Lưu giỏ hàng mới và gán lại cho existingCart
+        }
+
+        // Giảm số lượng sản phẩm trong kho
+        product.setQuantity(product.getQuantity() - shoppingCartRequest.getQuantity());
+        productService.save(product);
+
+        return existingCart;
     }
 
+
     @Override
-    public ShoppingCart save(ShoppingCart shoppingCart) {
+    public ShoppingCart save
+        (ShoppingCart shoppingCart) {
         return shoppingCartRepository.save(shoppingCart);
     }
 
