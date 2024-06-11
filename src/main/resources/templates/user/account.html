@@ -306,6 +306,7 @@
                             <li><a class="nav-link" data-bs-toggle="tab" href="#downloads">Downloads</a></li>
                             <li><a class="nav-link" data-bs-toggle="tab" href="#address">Địa chỉ</a></li>
                             <li><a class="nav-link" data-bs-toggle="tab" href="#account-details">Chi tiết tài khoản</a></li>
+                            <li><a class="nav-link" th:href="@{/user/order/list}">Lịch sử mua hàng </a></li>
                             <li><a class="nav-link" href="/login">Đăng xuất</a></li>
                         </ul>
                     </div>
@@ -333,9 +334,9 @@
                                             <tr>
                                                 <td th:text="${iteam.id}"></td>
                                                 <td th:text="${iteam.sentDate}"></td>
-                                                <td th:text="${iteam.statusEnum == 'waitting' ? 'Đang đợi' : 'Đã nhận'}"></td>
+                                                <td th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang đợi...' : 'Đã nhận'}"></td>
                                                 <td th:text="${iteam.orderPrice}"></td>
-                                                <td><a class="view" href="cart.html">view</a></td>
+                                                <td><a class="view" th:href="@{/user/order/confirm/{id} (id=${iteam.id})}">Xác nhận đơn</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

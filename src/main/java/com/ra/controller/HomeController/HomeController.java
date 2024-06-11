@@ -49,7 +49,7 @@ public class HomeController {
     @PostMapping("/register")
     public String register(@ModelAttribute("user") User user){
             userService.register(user);
-        return "login";
+       return "login";
     }
 
 }

@@ -261,7 +261,6 @@
                                     <th class="plantmore-product-price">Trạng thái</th>
                                     <th class="plantmore-product-quantity">Ngày Đăt Hàng</th>
                                     <th class="plantmore-product-subtotal">Ngày nhận hàng</th>
-                                    <th class="plantmore-product-subtotal">Cập nhật đơn hàng</th>
                                 </tr>
                                 </thead>
                                 <tbody th:each="iteam : ${listOrder}">
@@ -269,36 +268,20 @@
                                     <td class="plantmore-product-price"><span class="amount" th:text="${iteam.id}"></span></td>
                                     <td class="plantmore-product-price"><span class="amount" th:text="${iteam.user.fullName}"></span></td>
                                     <td class="plantmore-product-price"><span class="amount" th:text="${iteam.orderPrice} +'$'"></span></td>
-                                    <td class="plantmore-product-price">    <span class="amount" th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ...' : 'Đã nhận'}"></span></td>
+                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ...' : 'Đã nhận'}"></span></td>
                                     <td class="plantmore-product-price"><span class="amount" th:text="${iteam.sentDate}"></span></td>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.sentDate}"></span></td>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.sentDate}"></span></td>
+                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.receivedate}"></span></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="coupon-all">
-                                    <div class="coupon">
-                                        <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
-                                        <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
-                                    </div>
-                                    <div class="coupon2">
-                                        <input class="button" name="update_cart" value="Update cart" type="submit">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-5 ml-auto">
                                 <div class="cart-page-total">
-                                    <h2>Cart totals</h2>
+                                    <h2>Tổng tiền </h2>
                                     <ul>
-                                        <li>Subtotal <span th:text="${total}"></span></li>
-                                        <li>Total <span th:text="${total}"></span></li>
+                                        <li> Tổng tiền đã mua <span th:text="${sum}"></span></li>
                                     </ul>
-                                    <a th:href="@{/user/order}">Proceed to checkout</a>
                                 </div>
                             </div>
                         </div>

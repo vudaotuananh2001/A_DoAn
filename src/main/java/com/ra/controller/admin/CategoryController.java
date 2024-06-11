@@ -46,7 +46,6 @@ public class CategoryController {
     public String edit(@PathVariable ("id") Long id,
                        Model model
     ){
-        System.out.println("đây là gì");
         Category category =categoryService.findById(id);
         model.addAttribute("category",category);
         return "/admin/category/edit";
