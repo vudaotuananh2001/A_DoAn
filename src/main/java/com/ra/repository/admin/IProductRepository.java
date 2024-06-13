@@ -13,7 +13,6 @@ import java.util.List;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product,Long> {
-  //  List<Product> findProductByProductNameLike(String search);
     Page<Product> findProductByProductNameLike(String search, Pageable pageable);
     List<Product> findProductByStatusIsTrue();
   @Query("SELECT p FROM Product p WHERE p.status = true AND p.description = :description")

@@ -44,14 +44,14 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="/admin/category">
                         <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-circle-o"></i> Danh sản phẩm </a></li>
+                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i> Chỉnh sửa sản phẩm</a></li>
                     </ul>
                 </li>
@@ -64,7 +64,14 @@
             </span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="/admin/order">
+                        <i class="fa fa-th"></i> <span>Quản lý đơn hàng</span>
+                        <span class="pull-right-container">
+              <small class="label pull-right bg-green">FE</small>
+            </span>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -75,7 +82,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Danh mục sản phẩm
+                Danh sách đơn hàng
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -97,7 +104,7 @@
                         <div class="box-body">
                             <form action="" method="get">
                                 <div id="example1_filter" class="dataTables_filter">
-                                    <label>Tìm kiếm sản phẩm</label>
+                                    <label>Tìm kiếm người nhận</label>
                                     <input type="search" name="search" class="form-control input-sm" placeholder="search">
                                 </div>
                                 <div>
@@ -116,23 +123,20 @@
                                             <thead>
                                             <tr role="row">
                                                 <th>Id</th>
-                                                <th>Tổng tiền  </th>
-                                                <th>Ghi chú</th>
+                                                <th>Người nhận </th>
                                                 <th>Ngày gửi </th>
                                                 <th>Ngày nhận</th>
-                                                <th>Người đặt hàng</th>
+                                                <th>Tổng tiền</th>
                                                 <th>Trạng thái đơn hàng</th>
-                                                <th>Cập nhật</th>
                                             </tr>
                                             </thead>
                                             <tbody th:each="iteam : ${orderList}">
                                             <tr>
                                                 <td th:text="${iteam.id}"></td>
-                                                <td th:text="${iteam.orderPrice}"></td>
-                                                <td th:text="${iteam.note}"></td>
+                                                <td th:text="${iteam.user.fullName}"></td>
                                                 <td th:text="${iteam.sentDate}"></td>
                                                 <td th:text="${iteam.receivedate}"></td>
-                                                <td th:text="${iteam.user.fullName}"></td>
+                                                <td th:text="${iteam.orderPrice}"></td>
                                                 <td th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ': 'Đã giao'}"></td>
                                                 <td>
                                                 </td>
@@ -141,23 +145,23 @@
                                         </table>
                                     </div>
                                 </div>
-<!--                                <div class="row">-->
-<!--                                    <div class="col-sm-7">-->
-<!--                                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">-->
-<!--                                            <ul class="pagination">-->
-<!--                                                <li th:if="${currenPage > 1}">-->
-<!--                                                    <a th:href="@{'?pageNo=' + ${currenPage - 1}}">Previous</a>-->
-<!--                                                </li>-->
-<!--                                                <li th:each="iteam : ${#numbers.sequence(1,totalPage)}" th:classappend="${currenPage==iteam ? 'active': ''}">-->
-<!--                                                    <a th:href="@{'?pageNo='+${iteam}}" th:text="${iteam}"></a>-->
-<!--                                                </li>-->
-<!--                                                <li th:if="${currenPage <totalPage}">-->
-<!--                                                    <a th:href="@{'?pageNo=' + ${currenPage +1}}">Next</a>-->
-<!--                                                </li>-->
-<!--                                            </ul>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                       <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                           <ul class="pagination">
+                                               <li th:if="${currenPage > 1}">
+                                                   <a th:href="@{'?pageNo=' + ${currenPage - 1}}">Previous</a>
+                                               </li>
+                                               <li th:each="iteam : ${#numbers.sequence(1,totalPage)}" th:classappend="${currenPage==iteam ? 'active': ''}">
+                                                    <a th:href="@{'?pageNo='+${iteam}}" th:text="${iteam}"></a>
+                                                </li>
+                                               <li th:if="${currenPage <totalPage}">-->
+                                                    <a th:href="@{'?pageNo=' + ${currenPage +1}}">Next</a>
+                                               </li>
+                                            </ul>
+                                        </div>
+                                   </div>
+                             </div>
                             </div>
                         </div>
                     </div>
@@ -165,8 +169,6 @@
                 </div>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer">
-            </div>
             <!-- /.box-footer-->
             <!-- /.box -->
         </section>

@@ -2,8 +2,12 @@ package com.ra.service.admin.order;
 
 import com.ra.models.entity.Order;
 import com.ra.models.entity.OrderStatusEnum;
+import com.ra.models.entity.Product;
 import com.ra.repository.user.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +16,16 @@ public class OrderServiceImplAdmin implements  IOrderServiceAdmin{
     @Autowired
     private OrderRepository orderRepository;
     @Override
-    public List<Order> getAll(OrderStatusEnum statusEnum) {
-        return orderRepository.findOrdersByStatusEnum(statusEnum);
+    public List<Order> getAll() {
+        return orderRepository.findAll();
+    }
+
+    @Override
+    public Page<Order> getAllOrderPage(Integer pageNo, String search) {
+        Pageable pageable = PageRequest.of(pageNo-1,7);
+        if(search!=null && !search.isEmpty()){
+            return  orderRepository.findOrdersByUser_FullName("%" +search+"%",pageable);
+        }
+        return orderRepository.findAll(pageable);
     }
 }
