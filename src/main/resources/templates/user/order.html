@@ -251,82 +251,33 @@
     <div class="checkout-area mb-80">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="coupon-accordion">
-                        <!--Accordion Start-->
-                        <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
-                        <div id="checkout-login" class="coupon-content">
-                            <div class="coupon-info">
-                                <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>
-                                <form action="#">
-                                    <p class="form-row-first">
-                                        <label>Username or email <span class="required">*</span></label>
-                                        <input type="text">
-                                    </p>
-                                    <p class="form-row-last">
-                                        <label>Password  <span class="required">*</span></label>
-                                        <input type="text">
-                                    </p>
-                                    <p class="form-row">
-                                        <input value="Login" type="submit">
-                                        <label>
-                                            <input type="checkbox">
-                                            Remember me
-                                        </label>
-                                    </p>
-                                    <p class="lost-password"><a href="#">Lost your password?</a></p>
-                                </form>
-                            </div>
-                        </div>
-                        <!--Accordion End-->
-                        <!--Accordion Start-->
-                        <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
-                        <div id="checkout_coupon" class="coupon-checkout-content">
-                            <div class="coupon-info">
-                                <form action="#">
-                                    <p class="checkout-coupon">
-                                        <input placeholder="Coupon code" type="text">
-                                        <input value="Apply Coupon" type="submit">
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                        <!--Accordion End-->
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-6 col-12">
                     <form action="/user/checkout/checkout" method="post" id="formCheckOut">
                         <div class="checkbox-form">
                             <h3>Thông tin khách hàng</h3>
                             <div class="row" th:object="${user}">
-
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Tên khách hàng <span class="required">*</span></label>
-                                        <input placeholder="" type="text" th:value="${user.fullName}">
+                                        <input  type="text" th:value="${user.fullName}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Địa chỉ <span class="required">*</span></label>
-                                        <input placeholder="Street address" type="text" th:value="${user.address}">
+                                        <input  type="text" th:value="${user.address}" readonly>
                                     </div>
                                 </div>
-
-
-
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Địa chỉ email <span class="required">*</span></label>
-                                        <input placeholder="" type="email" th:value="${user.email}" >
+                                        <input type="email" th:value="${user.email}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Số điện thoại  <span class="required">*</span></label>
-                                        <input type="text" th:value="${user.phone}">
+                                        <input type="text" th:value="${user.phone}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -341,12 +292,14 @@
                                 <thead>
                                 <tr>
                                     <th class="cart-product-name">Sản phẩm</th>
+                                    <th class="cart-product-name">Số lượng</th>
                                     <th class="cart-product-total">Tổng tiên của sản phẩm</th>
                                 </tr>
                                 </thead>
                                 <tbody th:each="ieam :${shoppingCartList}">
                                 <tr class="cart_item">
-                                    <td class="cart-product-name" th:text="${ieam.product.productName}"><strong class="product-quantity" th:text="${ieam.quantity}"></strong></td>
+                                    <td class="cart-product-name" th:text="${ieam.product.productName}"><strong class="product-quantity" ></strong></td>
+                                    <td class="cart-product-total"><span class="amount" th:text="${ieam.quantity}"></span></td>
                                     <td class="cart-product-total"><span class="amount" th:text="${ieam.product.price * ieam.quantity}"></span></td>
                                 </tr>
                                 </tbody>
