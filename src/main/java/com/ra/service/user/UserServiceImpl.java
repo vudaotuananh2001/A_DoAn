@@ -17,12 +17,6 @@ import java.util.Set;
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
-
-    @Override
-    public User findById(Long id) {
-        return userRepository.findById(id).orElse(null);
-    }
-
     @Autowired
     private RoleRepository roleRepository;
     @Autowired
@@ -51,4 +45,15 @@ public class UserServiceImpl implements UserService{
     public Optional<User> findByUserName(String userName) {
         return userRepository.findUserByUserName(userName);
     }
+
+    @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
 }

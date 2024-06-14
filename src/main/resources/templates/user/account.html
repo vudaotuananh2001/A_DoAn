@@ -372,45 +372,27 @@
                                 </div>
                             </div>
                             <div id="address" class="tab-pane">
-                                <p>Các địa chỉ sau sẽ được sử dụng trên trang thanh toán theo mặc định.</p>
-                                <h4 class="billing-address">Billing address</h4>
+                                <p>Địa chỉ sau sẽ được sử dụng trên trang thanh toán theo mặc định.</p>
+                                <h4 class="billing-address">Địa chỉ chi tiết</h4>
                                 <a class="view" href="#">edit</a>
-                                <p>Nia Matos</p>
-                                <p>Australia</p>
+                                <p th:text="${user.address}"></p>
                             </div>
                             <div id="account-details" class="tab-pane fade">
-                                <h3>Account details </h3>
+                                <h3>Chi tiết tài khoản</h3>
                                 <div class="login">
                                     <div class="login-form-container">
                                         <div class="account-login-form">
-                                            <form action="#">
-                                                <p>Already have an account? <a href="#">Log in instead!</a></p>
-                                                <label>Social title</label>
-                                                <div class="input-radio">
-                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mr.</span>
-                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mrs.</span>
-                                                </div>
-                                                <label>First Name</label>
-                                                <input name="first-name" type="text">
-                                                <label>Last Name</label>
-                                                <input name="last-name" type="text">
+                                            <form action="" method="post" th:object="${user}">
+                                                <p>Thông tin tài khoản</p>
+                                                <label>Họ và tên </label>
+                                                <input name="first-name" type="text" th:field="*{fullName}">
+                                                <label>Địa chỉ</label>
+                                                <input name="last-name" type="text" th:field="*{address}">
                                                 <label>Email</label>
-                                                <input name="email-name" type="text">
-                                                <label>Password</label>
-                                                <input name="user-password" type="password">
-                                                <label>Birthdate</label>
-                                                <input name="birthday" value="" placeholder="MM/DD/YYYY" type="text">
-                                                <span class="example">
-                                                      (E.g.: 05/31/1970)
-                                                    </span>
-                                                <span class="custom-checkbox">
-                                                        <input name="optin" value="1" type="checkbox">
-                                                        <label>Receive offers from our partners</label>
-                                                    </span>
-                                                <span class="custom-checkbox">
-                                                        <input name="newsletter" value="1" type="checkbox">
-                                                        <label>Sign up for our newsletter<br><em>You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</em></label>
-                                                    </span>
+                                                <input name="email-name" type="email" th:field="*{email}">
+                                                <label>Số điện thoại </label>
+                                                <input name="user-password" type="text" th:field="*{phone}">
+                                                <label>Đây là thông tin về tài khoản<br><em>Bạn có thể thay đổi thông tin các nhân của mình </em></label>
                                                 <div class="button-box">
                                                     <button type="submit" class="default-btn">save</button>
                                                 </div>

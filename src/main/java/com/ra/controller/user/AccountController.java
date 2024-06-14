@@ -14,6 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -51,4 +53,17 @@ public class AccountController {
         model.addAttribute("user",user);
         return  "/user/account";
     }
+    @PostMapping("")
+    public String updateAccount(@ModelAttribute("user") User user){
+        User userUpdate = userService.findById(getUserId());
+        if(userUpdate!=null){
+            userUpdate.setFullName(user.getFullName());
+            userUpdate.setAddress(user.getAddress());
+            userUpdate.setEmail(user.getEmail());
+            userUpdate.setPhone(user.getPhone());
+            userService.save(userUpdate);
+        }
+        return  "redirect:/user/account";
+    }
+
 }

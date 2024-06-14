@@ -722,8 +722,6 @@
             success: function (response) {
                 var total = response.quantity * response.product.price;
                   totalPrice.innerText = total.toFixed(1);
-              //  subtotalCart.innerText = handleTotalCart().toFixed(1);
-              //  totalCart.innerText = handleTotalCart().toFixed(1);
                 console.log(response);
             },
             error: function (error) {

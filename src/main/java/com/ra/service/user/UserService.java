@@ -8,4 +8,5 @@ public interface UserService {
    Optional<User> findByUserName(String userName);
    User register (User user);
    User findById(Long id);
+   User save(User user);
 }
