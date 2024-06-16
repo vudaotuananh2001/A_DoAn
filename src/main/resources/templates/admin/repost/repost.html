@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="/admin/fragmets/head :: head"></head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -17,12 +17,12 @@
                     <img th:src="@{/assets/images/user2-160x160.jpg}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p sec:authentication="principal.user.fullName"></p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
             <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
+            <form action="/admin/category" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
@@ -44,14 +44,14 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="/admin/category">
                         <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i> Danh sản phẩm </a></li>
+                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
                         <li><a href=""><i class="fa fa-circle-o"></i> Chỉnh sửa sản phẩm</a></li>
                     </ul>
                 </li>
@@ -90,7 +90,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Danh mục sản phẩm
+                Danh sách đơn hàng
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -103,83 +103,83 @@
         <section class="content">
             <!-- Default box -->
             <div class="box">
-                <div class="box-body">
-                    <a href="/admin/product/add" class="btn-success">Thêm mới sản phẩm mới </a>
-                </div>
+
                 <div>
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Thêm sản phẩm</h3>
+                            <h3 class="box-title">Danh sách đơn hàng và lợi nhuận</h3>
                         </div>
-
                         <div class="box-body">
-                            <div class="box box-primary">
-                                <form action="/admin/product/edit" method="post" th:object="${product}" role="form" enctype="multipart/form-data">
-                                    <input type="hidden" class="form-control" th:field="*{id}">
-                                    <div class="box-body">
-                                        <div class="form-group">
-                                            <label>Tên sản phẩm</label>
-                                            <input type="text" th:field="*{productName}" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Mô tả</label>
-                                            <select th:field="*{description}" class="form-control">
-                                                <option value="NewProduct">Sản phẩm mới </option>
-                                                <option value="SellingProduct">Sản phẩm bán chạy </option>
-                                                <option value="FavoriteProduct">Sản phẩm yêu thích</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Mô tả chi tiết</label>
-                                            <textarea type="text" th:field="*{detail}" class="form-control"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Giá sản phẩm</label>
-                                            <input type="number" th:field="*{price}" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Số lượng sản phẩm</label>
-                                            <input type="number" th:field="*{quantity}" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <img th:src="@{|/upload/${product.image}|}" width="150px">
-                                            <input type="hidden" th:field="*{image}" >
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Thêm ảnh</label>
-                                            <input type="file" name="img">
-                                            <p class="help-block">Hãy lựa chọn ảnh cho sản phẩm</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Sản phẩm của danh mục</label>
-                                            <select class="form-control" th:field="*{category.id}">
-                                                <option th:each="iteam : ${categoryList}" th:value="${iteam.id}"
-                                                        th:text="${iteam.categoryName}"></option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label> Trạng thái của sản phẩm </label>
-                                            <br>
-                                            <input type="radio" th:field="*{status}" checked="checked" value="1">
-                                            Sản phẩm đang bán
-                                            <br>
-                                            <input type="radio" th:field="*{status}"  value="0">
-                                            Sản phẩm đã dừng bán
+                            <form action="" method="get">
+                                <div id="example1_filter" class="dataTables_filter">
+                                    <label>Từ ngày</label>
+                                    <input type="date" name="sentDate" class="form-control input-sm" placeholder="Từ ngày.....">
+                                    <label>Đến ngày</label>
+                                    <input type="date" name="receivedDate" class="form-control input-sm" placeholder="Đến ngày....">
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-danger">Tim kiếm</button>
+                                </div>
+                            </form>
+                            <label th:text="'Tổng doanh số: '+'  ' +${total} +'$'"></label>
+                            <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="example2" class="table table-bordered table-hover dataTable"
+                                               role="grid" aria-describedby="example2_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th>Id</th>
+                                                <th>Người nhận </th>
+                                                <th>Ngày gửi </th>
+                                                <th>Ngày nhận</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Trạng thái đơn hàng</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody th:each="iteam : ${listReport}">
+                                            <tr>
+                                                <td th:text="${iteam.id}"></td>
+                                                <td th:text="${iteam.user.fullName}"></td>
+                                                <td th:text="${iteam.sentDate}"></td>
+                                                <td th:text="${iteam.receivedate}"></td>
+                                                <td th:text="${iteam.orderPrice}"></td>
+                                                <td th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ': 'Đã giao'}"></td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                            <ul class="pagination">
+                                                <li th:if="${currenPage > 1}">
+                                                    <a th:href="@{'?pageNo=' + ${currenPage - 1}}">Previous</a>
+                                                </li>
+                                                <li th:each="iteam : ${#numbers.sequence(1,totalPage)}" th:classappend="${currenPage==iteam ? 'active': ''}">
+                                                    <a th:href="@{'?pageNo='+${iteam}}" th:text="${iteam}"></a>
+                                                </li>
+                                                <li th:if="${currenPage <totalPage}">-->
+                                                    <a th:href="@{'?pageNo=' + ${currenPage +1}}">Next</a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer">
-                    </div>
-                    <!-- /.box-footer-->
                 </div>
             </div>
+            <!-- /.box-body -->
+            <!-- /.box-footer-->
             <!-- /.box -->
         </section>
         <!-- /.content -->

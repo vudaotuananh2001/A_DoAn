@@ -24,7 +24,7 @@ public class OrderServiceImplAdmin implements  IOrderServiceAdmin{
     public Page<Order> getAllOrderPage(Integer pageNo, String search) {
         Pageable pageable = PageRequest.of(pageNo-1,7);
         if(search!=null && !search.isEmpty()){
-            return  orderRepository.findOrdersByUser_FullName("%" +search+"%",pageable);
+            return  orderRepository.findOrdersByUser_FullNameLike("%" +search+"%",pageable);
         }
         return orderRepository.findAll(pageable);
     }
