@@ -6,6 +6,9 @@ import com.ra.repository.user.RoleRepository;
 import com.ra.repository.user.UserRepository;
 import com.ra.models.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,15 @@ public class UserServiceImpl implements UserService{
     private RoleRepository roleRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Override
+    public Page<User> getAllUser(String searchName, Integer pageNo) {
+        Pageable pageable = PageRequest.of(pageNo -1 , 10);
+        if(searchName!=null && !searchName.isEmpty()){
+            return userRepository.findUserByPhone(searchName,pageable);
+        }
+        return userRepository.findAll(pageable);
+    }
 
     @Override
     public User register(User user) {

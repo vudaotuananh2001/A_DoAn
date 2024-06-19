@@ -22,7 +22,7 @@
                 </div>
             </div>
             <!-- search form -->
-            <form action="/admin/category" method="get" class="sidebar-form">
+            <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
@@ -36,7 +36,7 @@
 
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
-                    <a href="/admin/category">
+                    <a href="#">
                         <i class="fa fa-th"></i> <span>Quản lý danh mục</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="/admin/category">
+                    <a href="#">
                         <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -80,6 +80,7 @@
             </span>
                     </a>
                 </li>
+
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -90,7 +91,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Danh sách đơn hàng
+                Danh mục danh mục
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -103,22 +104,24 @@
         <section class="content">
             <!-- Default box -->
             <div class="box">
-
+                <div class="box-body">
+                    <a href="/admin/category/add" class="btn-success">Thêm mới danh mục</a>
+                </div>
                 <div>
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Dữ liệu về đơn đặt hàng</h3>
+                            <h3 class="box-title">Dữ liệu về danh mục</h3>
                         </div>
+                        <form action="" method="get">
+                            <div id="example1_filter" class="dataTables_filter">
+                                <label>Tìm kiếm người dùng</label>
+                                <input type="search" name="search" class="form-control input-sm" placeholder="search">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-danger">Tim kiếm</button>
+                            </div>
+                        </form>
                         <div class="box-body">
-                            <form action="" method="get">
-                                <div id="example1_filter" class="dataTables_filter">
-                                    <label>Tìm kiếm người nhận</label>
-                                    <input type="search" name="search" class="form-control input-sm" placeholder="search">
-                                </div>
-                                <div>
-                                    <button type="submit" class="btn btn-danger">Tim kiếm</button>
-                                </div>
-                            </form>
                             <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                                 <div class="row">
                                     <div class="col-sm-6"></div>
@@ -131,23 +134,19 @@
                                             <thead>
                                             <tr role="row">
                                                 <th>Id</th>
-                                                <th>Người nhận </th>
-                                                <th>Ngày gửi </th>
-                                                <th>Ngày nhận</th>
-                                                <th>Tổng tiền</th>
-                                                <th>Trạng thái đơn hàng</th>
+                                                <th>Tên khách hàng</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Email</th>
                                             </tr>
                                             </thead>
-                                            <tbody th:each="iteam : ${orderList}">
-                                            <tr>
+                                            <tbody>
+                                            <tr th:each="iteam : ${listUser}">
                                                 <td th:text="${iteam.id}"></td>
-                                                <td th:text="${iteam.user.fullName}"></td>
-                                                <td th:text="${iteam.sentDate}"></td>
-                                                <td th:text="${iteam.receivedate}"></td>
-                                                <td th:text="${iteam.orderPrice}"></td>
-                                                <td th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ': 'Đã giao'}"></td>
-                                                <td>
-                                                </td>
+                                                <td th:text="${iteam.userName}"></td>
+                                                <td th:text="${iteam.phone}"></td>
+                                                <td th:text="${iteam.address}"></td>
+                                                <td th:text="${iteam.email}"></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -155,28 +154,31 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-7">
-                                       <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                                           <ul class="pagination">
-                                               <li th:if="${currenPage > 1}">
-                                                   <a th:href="@{'?pageNo=' + ${currenPage - 1}}">Previous</a>
-                                               </li>
-                                               <li th:each="iteam : ${#numbers.sequence(1,totalPage)}" th:classappend="${currenPage==iteam ? 'active': ''}">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                            <ul class="pagination">
+                                                <li th:if="${currenPage > 1}">
+                                                    <a th:href="@{'?pageNo=' + ${currenPage - 1}}">Previous</a>
+                                                </li>
+                                                <li th:each="iteam : ${#numbers.sequence(1,totalPage)}" th:classappend="${currenPage==iteam ? 'active': ''}">
                                                     <a th:href="@{'?pageNo='+${iteam}}" th:text="${iteam}"></a>
                                                 </li>
-                                               <li th:if="${currenPage <totalPage}">-->
+                                                <li th:if="${currenPage <totalPage}">
                                                     <a th:href="@{'?pageNo=' + ${currenPage +1}}">Next</a>
-                                               </li>
+                                                </li>
                                             </ul>
                                         </div>
-                                   </div>
-                             </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                </div>
+                <!-- /.box-footer-->
             </div>
-            <!-- /.box-body -->
-            <!-- /.box-footer-->
             <!-- /.box -->
         </section>
         <!-- /.content -->

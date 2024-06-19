@@ -20,8 +20,7 @@ public class CategoryController {
     @GetMapping("")
     public String home(Model model,
                        @RequestParam(name = "search",required = false) String search,
-                       @RequestParam(name = "pageNo" ,defaultValue = "1")Integer page ){
-        System.out.println("nhảy vao day chua");
+                       @RequestParam(name = "pageNo" ,defaultValue = "1") Integer page ){
         Page<Category> categoryList =categoryService.getAllPage(search,page);
         model.addAttribute("totalPage",categoryList.getTotalPages());
         model.addAttribute("currenPage",page);
