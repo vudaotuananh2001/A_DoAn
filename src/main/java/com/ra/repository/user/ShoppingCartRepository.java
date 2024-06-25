@@ -16,4 +16,6 @@ public interface ShoppingCartRepository extends JpaRepository<ShoppingCart,Long>
     @Query("select s from ShoppingCart  s where s.user.id =:userId and  s.product.id =:productId")
     ShoppingCart findByUserIdAndProductId(Long userId, Long productId);
 
+    @Query("select count(s) from ShoppingCart s where s.user.id = :userId")
+    long countByUserId(@Param("userId") Long userId);
 }

@@ -47,7 +47,7 @@ public class UserController {
         for (ShoppingCart item: shoppingCartList) {
         total += item.getProduct().getPrice() * item.getQuantity();
         }
-        long countById = shoppingCartRepository.count();
+        long countById = shoppingCartRepository.countByUserId(getUserId());
         model.addAttribute("countById",countById);
         model.addAttribute("shoppingCartList", shoppingCartList);
         model.addAttribute("total", total);
