@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Plantmore - Responsive Bootstrap 5 eCommerce Template</title>
+    <title>404 || Plantmore</title>
     <meta name="description" content="">
     <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,15 +73,15 @@
                                         <!--Dropdown Menu Start-->
                                         <ul class="dropdown">
                                             <li><a href="#">Home Page One</a></li>
-                                                <li><a href="#">Home Page Two</a></li>
-                                                <li><a href="#">Home Page Three</a></li>
-                                                <li><a href="#">Home Page Four</a></li>
-                                                <li><a href="#">Home Page Five</a></li>
-                                                <li><a href="#">Home Page Six</a></li>
-                                                <li><a href="#">Home Page Seven</a></li>
-                                            </ul>
-                                            <!--Dropdown Menu End-->
-                                        </li>
+                                            <li><a href="#">Home Page Two</a></li>
+                                            <li><a href="#">Home Page Three</a></li>
+                                            <li><a href="#">Home Page Four</a></li>
+                                            <li><a href="#">Home Page Five</a></li>
+                                            <li><a href="#">Home Page Six</a></li>
+                                            <li><a href="#">Home Page Seven</a></li>
+                                        </ul>
+                                        <!--Dropdown Menu End-->
+                                    </li>
                                         <li><a href="#">Shop</a></li>
                                         <li><a href="#">Portfolio</a></li>
                                         <li><a href="#">Blog</a></li>
@@ -147,13 +148,14 @@
                             <div class="header-option">
                                 <div class="mini-cart-search">
                                     <div class="mini-cart">
-                                        <a th:href="@{/user/shopping-cart}">
+                                        <a href="#">
                                                 <span class="cart-icon">
                                                    <span class="cart-quantity">0</span>
                                                 </span>
-                                            <span class="cart-title">Giỏ hàng <br><strong>0</strong></span>
+                                            <span class="cart-title">Your cart <br><strong>$0</strong></span>
                                         </a>
                                         <!--Cart Dropdown Start-->
+
                                         <!--Cart Dropdown End-->
                                     </div>
                                     <div class="header-search">
@@ -226,72 +228,29 @@
         </div>
     </header>
     <!--Header Area End-->
-    <!--Breadcrumb Tow Start-->
-    <div class="breadcrumb-tow mb-120">
+    <!--Error 404 Area Start-->
+    <div class="error-404-area">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-title">
-                        <h1>Lịch sử mua hàng</h1>
-                    </div>
-                    <div class="breadcrumb-content breadcrumb-content-tow">
-                        <ul>
-                            <li><a th:href="@{/user}">Home</a></li>
-                            <li class="active">Danh sách đơn hàng</li>
-                        </ul>
+                <div class="col-md-12">
+                    <div class="error-wrapper text-center">
+                        <div class="error-text">
+                            <h1>Bill</h1>
+                            <form method="post" th:action="@{/pay}" class="mc-form subscribe-form">
+                                <input  type="text" th:value="${total}" name="price" />
+                                <button id="mc-submit">Payment with Paypal <i class="fa fa-chevron-right"></i></button>
+                            </form>
+                        </div>
+
+                        <div class="error-button">
+                            <a th:href="@{/user}"> Trở lại trang chủ </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Breadcrumb Tow End-->
-    <!--Shopping Cart Area Strat-->
-    <div class="Shopping-cart-area mb-110">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="#">
-                        <div class="table-content table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="plantmore-product-remove">STT</th>
-                                    <th class="plantmore-product-thumbnail">Khác Hàng</th>
-                                    <th class="cart-product-name">Giá Tiền</th>
-                                    <th class="plantmore-product-price">Trạng thái</th>
-                                    <th class="plantmore-product-quantity">Ngày Đăt Hàng</th>
-                                    <th class="plantmore-product-subtotal">Ngày nhận hàng</th>
-                                </tr>
-                                </thead>
-                                <tbody th:each="iteam : ${listOrder}">
-                                <tr>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.id}"></span></td>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.user.fullName}"></span></td>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.orderPrice} +'$'"></span></td>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ...' : (iteam.statusEnum.name() == 'PAID' ? 'Đã thanh toán' : 'Đã nhận')}"></span>
-                                    </td>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.sentDate}"></span></td>
-                                    <td class="plantmore-product-price"><span class="amount" th:text="${iteam.receivedate}"></span></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5 ml-auto">
-                                <div class="cart-page-total">
-                                    <h2>Tổng tiền </h2>
-                                    <ul>
-                                        <li> Tổng tiền đã mua <span th:text="${sum}"></span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Shopping Cart Area End-->
+    <!--Error 404 Area End-->
     <!--Brand Area Start-->
     <div class="brand-area mb-105">
         <div class="container">
@@ -435,7 +394,7 @@
                             <!--Single Footer Widget Start-->
                             <div class="single-footer-widget mb-30">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img th:src="@{fe/img/logo/logo-footer.png}" alt=""></a>
+                                    <a th:href="@{/user}"><img th:src="@{/fe/img/logo/logo-footer.png}" alt=""></a>
                                 </div>
                             </div>
                             <!--Single Footer Widget End-->
@@ -486,7 +445,7 @@
                         <div class="col-md-12">
                             <!--Footer Payment Start-->
                             <div class="footer-payments-image">
-                                <img th:src="@{/fe/img/payment/payment-icon.png}" alt="">
+                                <img src="img/payment/payment-icon.png" alt="">
                             </div>
                             <!--Footer Payment End-->
                             <!--Footer Menu Start-->
@@ -647,6 +606,7 @@
 
 <!--All Js Here-->
 
+<!--Jquery 3.6.0-->
 <script th:src="@{/fe/js/vendor/modernizr-3.6.0.min.js}"></script>
 <script th:src="@{/fe/js/vendor/jquery-3.6.0.min.js}"></script>
 <script th:src="@{/fe/js/vendor/jquery-migrate-3.3.2.min.js}"></script>
@@ -686,31 +646,6 @@
 <script th:src="@{/fe/js/plugins.js}"></script>
 <!--Main Js-->
 <script th:src="@{/fe/js/main.js}"></script>
-<script th:inline="javascript">
-    function handleChangeQuantity(productId, quantity) {
-        var totalPrice = document.getElementById(`span_${productId}`)
-        var subtotalCart = document.getElementById("subtotal")
-        var totalCart = document.getElementById("total")
-        console.log(productId);
-        console.log(quantity);
-        $.ajax({
-            type: "POST",
-            url: "/user/shopping-cart/cart/edit/" + productId,
-            data: {
-                quantity: quantity
-            },
-            success: function (response) {
-                var total = response.quantity * response.product.price;
-                totalPrice.innerText = total.toFixed(1);
-                //  subtotalCart.innerText = handleTotalCart().toFixed(1);
-                //  totalCart.innerText = handleTotalCart().toFixed(1);
-                console.log(response);
-            },
-            error: function (error) {
-                console.log('Error:', error);
-            }
-        });
-    }
-</script>
 </body>
+
 </html>

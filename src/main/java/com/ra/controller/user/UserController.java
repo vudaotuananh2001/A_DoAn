@@ -28,8 +28,6 @@ public class UserController {
     @Autowired
     private IAuthService authService;
     @Autowired
-    private UserService userService;
-    @Autowired
     private IProductService productService;
     @Autowired
     private ShoppingCartService shoppingCartService;

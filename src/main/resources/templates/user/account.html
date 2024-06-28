@@ -43,9 +43,6 @@
 
 </head>
 <body>
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
 
 <div class="wrapper">
     <!--Header Area Start-->
@@ -334,7 +331,8 @@
                                             <tr>
                                                 <td th:text="${iteam.id}"></td>
                                                 <td th:text="${iteam.sentDate}"></td>
-                                                <td th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang đợi...' : 'Đã nhận'}"></td>
+                                                <td><span class="amount" th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ...' : (iteam.statusEnum.name() == 'PAID' ? 'Đã thanh toán' : 'Đã nhận')}"></span>
+                                                </td>
                                                 <td th:text="${iteam.orderPrice}"></td>
                                                 <td><a class="view" th:href="@{/user/order/confirm/{id} (id=${iteam.id})}">Xác nhận đơn</a></td>
                                             </tr>

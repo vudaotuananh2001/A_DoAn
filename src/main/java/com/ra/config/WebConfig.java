@@ -31,6 +31,7 @@ public class WebConfig{
                .authorizeHttpRequests((auth) ->auth
                                .requestMatchers("/*").permitAll()
                        .requestMatchers("/auth/**").permitAll()
+                       .requestMatchers("/pay/**").permitAll()
                        .requestMatchers("/user/**").hasAuthority(String.valueOf(RoleEnum.USER))
                        .requestMatchers("/admin/**").hasAuthority(String.valueOf(RoleEnum.ADMIN))
                        .anyRequest().authenticated()

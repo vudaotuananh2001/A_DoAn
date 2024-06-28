@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
-<!-- Mirrored from htmldemo.net/plantmore/plantmore-v5/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Apr 2024 07:52:49 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -318,7 +317,7 @@
                                         <div class="card-header" id="#payment-1">
                                             <h5 class="panel-title">
                                                 <a class="" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Thanh toán trực tiêp
+                                                    Thanh toán trực tuyến
                                                 </a>
                                             </h5>
                                         </div>
@@ -326,6 +325,7 @@
                                             <div class="card-body">
                                                 <p>Thực hiện thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn hàng của bạn làm tài liệu tham khảo thanh toán. Đơn đặt hàng của bạn sẽ không được giao cho đến khi tiền đã được xóa trong tài khoản của chúng tôi.</p>
                                                 <p>Cảm ơn bạn đã đặt hàng bên Shop.</p>
+                                                <a th:href="@{/pay/test}">Thanh Toán Online Tai Đây</a>
                                             </div>
                                         </div>
                                     </div>

@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface OrderService {
     Order add (User user, Double total);
+    Order addPaid (User user, Double total);
     List<Order> getAllOrder(Long id);
     Order save (Order order);
     Order getByIdOrder (Long id);

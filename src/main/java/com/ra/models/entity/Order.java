@@ -1,8 +1,6 @@
 package com.ra.models.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,17 +22,12 @@ public class Order {
     private String note;
     private Date sentDate; // ngày gửi
     private Date receivedate; // ngày nhận
-
     @ManyToOne // người nhận
     @JoinColumn(name = "user_id",referencedColumnName = "user_id")
     private User user;
-
     @OneToMany(mappedBy = "order")
     @JsonIgnore
     List<OrderDetails> orderDetails;
-
     @Enumerated(EnumType.STRING)
     private OrderStatusEnum statusEnum;
-
-
 }

@@ -69,7 +69,7 @@
                             <div class="header-menu">
                                 <nav>
                                     <ul class="main-menu">
-                                        <<li><a th:href="@{/user}">home</a>
+                                        <li><a th:href="@{/user}">home</a>
                                         <!--Dropdown Menu Start-->
                                         <ul class="dropdown">
                                             <li><a href="#">Home Page One</a></li>
@@ -82,7 +82,7 @@
                                             </ul>
                                             <!--Dropdown Menu End-->
                                         </li>
-                                        <li><a href="#">Shop</a></li>
+                                        <li><a  th:href="@{/user/page}">Shop</a></li>
                                         <li><a href="#">Portfolio</a></li>
                                         <li><a href="#">Blog</a></li>
                                         <li><a href="#">Pages</a>
@@ -172,8 +172,7 @@
                                             </ul>
                                             <p class="cart-btn">
                                                 <a th:href="@{/user/shopping-cart}">View cart</a><p class="cart-subtotal"><strong>Tổng tiền:</strong> <span class="float-right" th:text="${total} + ' $'"></span></p>
-
-                                            <a href="checkout.html">Checkout</a>
+                                            <a th:href="@{/user/checkout}">Checkout</a>
                                             </p>
                                         </div>
                                         <!--Cart Dropdown End-->

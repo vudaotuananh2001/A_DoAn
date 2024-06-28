@@ -26,6 +26,17 @@ public class OrderServiceImpl implements  OrderService{
     }
 
     @Override
+    public Order addPaid(User user, Double total) {
+        Order order = Order.builder()
+                .user(user)
+                .orderPrice(total)
+                .statusEnum(OrderStatusEnum.PAID)
+                .sentDate(new java.sql.Date(new java.util.Date().getTime()))
+                .build();
+        return orderRepository.save(order);
+    }
+
+    @Override
     public List<Order> getAllOrder(Long id) {
         return orderRepository.findOrdersByUserId(id);
     }
