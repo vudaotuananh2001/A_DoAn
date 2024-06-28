@@ -11,4 +11,6 @@ public interface IProductService {
     Product findById(Long id);
     void deleteById(Long id);
     Page<Product> getAllPage(Integer pageNo,String search);
+    Page<Product> getAllPageUser(Integer pageNo);
+    Page<Product> getAllProductByCategoryId(Long id,Integer pageNo);
 }

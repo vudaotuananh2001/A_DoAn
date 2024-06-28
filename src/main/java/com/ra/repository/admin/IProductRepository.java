@@ -18,5 +18,7 @@ public interface IProductRepository extends JpaRepository<Product,Long> {
   @Query("SELECT p FROM Product p WHERE p.status = true AND p.description = :description")
 
   List<Product> findProductByStatusIsTrueAndDescription(EnumDescriptionProduct description );
+  @Query("select p from  Product p where p.category.id =:categoryId")
+  Page<Product> findProductByCategoryId(@Param("categoryId") Long categoryId,Pageable pageable);
 
 }

@@ -23,7 +23,19 @@ public class ProductServiceImpl implements IProductService {
         }
         return productRepository.findAll(pageable);
     }
-    
+
+    @Override
+    public Page<Product> getAllPageUser(Integer pageNo) {
+        Pageable pageable = PageRequest.of(pageNo-1,10);
+        return productRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Product> getAllProductByCategoryId(Long id,Integer pageNo) {
+        Pageable pageable = PageRequest.of(pageNo-1,10);
+        return productRepository.findProductByCategoryId(id,pageable);
+    }
+
     @Override
     public Product save(Product product) {
         return productRepository.save(product);

@@ -34,12 +34,13 @@ public class ShoppingCartController {
 
     @GetMapping("")
     public String home(Model model){
-        List<ShoppingCart> shoppingCartList  = shoppingCartService.getAll(getUserId());
+        Long userId= getUserId();
+        List<ShoppingCart> shoppingCartList  = shoppingCartService.getAll(userId);
         double total=0;
         for(ShoppingCart iteam : shoppingCartList){
             total += iteam.getProduct().getPrice() * iteam.getQuantity();
         }
-        long countById = shoppingCartRepository.count();
+        long countById = shoppingCartRepository.countByUserId(getUserId());
         model.addAttribute("countById",countById);
         model.addAttribute("shoppingCartList",shoppingCartList);
         model.addAttribute("total",total);
