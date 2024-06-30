@@ -54,7 +54,18 @@ public class ShoppingCartController {
             shoppingCartRequest.setProductId(id);
             shoppingCartRequest.setQuantity(1);
             shoppingCartService.add(shoppingCartRequest,userId);
+        System.err.println(id);
         return "redirect:/user";
+    }
+
+    @GetMapping("/page/add/{id}")
+    public String addProductCartPage(@PathVariable("id") Long id){
+        Long userId= getUserId();// id đăng nhập
+        ShoppingCartRequest shoppingCartRequest = new ShoppingCartRequest();
+        shoppingCartRequest.setProductId(id);
+        shoppingCartRequest.setQuantity(1);
+        shoppingCartService.add(shoppingCartRequest,userId);
+        return "redirect:/user/page";
     }
 
     @PostMapping("/cart/edit/{id}")
@@ -81,6 +92,23 @@ public class ShoppingCartController {
             shoppingCartService.deleteById(id);
         }
         return "redirect:/user";
+    }
+
+    @GetMapping("/page/delete/{id}")
+    public String deletePage(@PathVariable("id") Long id) {
+        ShoppingCart cartToDelete = shoppingCartRepository.findById(id).orElse(null); // Lấy thông tin của giỏ hàng
+        if (cartToDelete != null) {
+            Product product = cartToDelete.getProduct();
+            int quantityToDelete = cartToDelete.getQuantity();
+
+            // Cập nhật lại số lượng sản phẩm trong kho
+            product.setQuantity(product.getQuantity() + quantityToDelete);
+            productService.save(product);
+
+            // Xóa sản phẩm khỏi giỏ hàng
+            shoppingCartService.deleteById(id);
+        }
+        return "redirect:/user/page";
     }
 
 
