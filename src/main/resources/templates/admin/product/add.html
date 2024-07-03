@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="/admin/fragmets/head :: head"></head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -17,7 +17,7 @@
                     <img th:src="@{/assets/images/user2-160x160.jpg}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p sec:authentication="principal.user.fullName"></p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -36,36 +36,35 @@
 
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
-                    <a href="/admin/category">
-                        <i class="fa fa-th"></i> <span>Quản lý danh mục</span>
+                    <a th:href="@{/admin/category}">
+                        <i class="fa fa-object-group"></i>Quản lý danh mục</span>
                         <span class="pull-right-container">
-              <small class="label pull-right bg-green">FE</small>
-            </span>
+                                <small class="label pull-right bg-green">FE</small>
+                        </span>
                     </a>
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm</span>
+                        <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm </span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i> Danh sản phẩm </a></li>
-                        <li><a href=""><i class="fa fa-circle-o"></i>Sản phẩm hot</a></li>
+                        <li><a th:href="@{/admin/product}"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
+                        <li><a th:href="@{/admin/product/hot}"><i class="fa fa-circle-o"></i>Sản phẩm hot</a></li>
                     </ul>
                 </li>
-
                 <li>
-                    <a href="/admin/user">
-                        <i class="fa fa-th"></i> <span>Quản lý khách hàng</span>
+                    <a th:href="@{/admin/user}">
+                        <i class="fa fa-user"></i> <span>Quản lý khách hàng</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-green">Hot</small>
             </span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/order">
+                    <a th:href="@{/admin/order}">
                         <i class="fa fa-th"></i> <span>Quản lý đơn hàng</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
@@ -73,8 +72,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/report">
-                        <i class="fa fa-th"></i> <span>Báo cáo</span>
+                    <a th:href="@{/admin/report}">
+                        <i class="fa fa-line-chart"></i><span>Báo cáo</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
             </span>

@@ -10,6 +10,7 @@ import com.ra.service.user.UserService;
 import com.ra.service.user.order.OrderService;
 import com.ra.service.user.shopping_cart.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -73,14 +75,17 @@ public class OrderController {
     }
 
     @GetMapping("/list")
-    public String list (Model model){
-        List<Order> listOrder =orderService.getAllOrder(getUserId());
+    public String list (Model model,
+                        @RequestParam(name = "pageNo", defaultValue = "1") Integer page){
+        Page<Order> listOrder =orderService.getAllOrder(getUserId(),page);
         model.addAttribute("listOrder",listOrder);
         double sum=0;
       for(Order item :  listOrder){
             sum+= item.getOrderPrice();
       }
       model.addAttribute("sum",sum);
+        model.addAttribute("totalPage", listOrder.getTotalPages());
+        model.addAttribute("currenPage", page);
         return "user/listorder";
     }
 

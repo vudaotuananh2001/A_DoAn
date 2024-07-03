@@ -5,6 +5,9 @@ import com.ra.models.entity.OrderStatusEnum;
 import com.ra.models.entity.User;
 import com.ra.repository.user.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +40,9 @@ public class OrderServiceImpl implements  OrderService{
     }
 
     @Override
-    public List<Order> getAllOrder(Long id) {
-        return orderRepository.findOrdersByUserId(id);
+    public Page<Order> getAllOrder(Long id,Integer pageNo) {
+        Pageable pageable = PageRequest.of(pageNo-1,10);
+        return orderRepository.findOrdersByUserId(id,pageable);
     }
 
     @Override

@@ -258,6 +258,19 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <div class="product-pagination">
+                                    <ul>
+                                        <li th:if="${currenPage > 1}">
+                                            <a th:href="@{'?pageNo=' + ${currenPage - 1}}"><i class="fa fa-angle-double-right"></i></a>
+                                        </li>
+                                        <li th:each="iteam : ${#numbers.sequence(1,totalPage)}" th:classappend="${currenPage==iteam ? 'active': ''}">
+                                            <a th:href="@{'?pageNo='+${iteam}}" th:text="${iteam}"></a>
+                                        </li>
+                                        <li th:if="${currenPage <totalPage}">
+                                            <a th:href="@{'?pageNo=' + ${currenPage +1}}"><i class="fa fa-angle-double-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div id="downloads" class="tab-pane fade">
                                 <h3>Downloads</h3>

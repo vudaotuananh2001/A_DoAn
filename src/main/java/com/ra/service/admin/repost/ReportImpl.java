@@ -1,6 +1,7 @@
 package com.ra.service.admin.repost;
 
 import com.ra.models.entity.Order;
+import com.ra.models.entity.OrderStatusEnum;
 import com.ra.repository.admin.IReportRepository;
 import com.ra.repository.user.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class ReportImpl implements IReport{
         if(sentDate!=null && receivedDate!=null){
             return  iReportRepository.getReport(sentDate,receivedDate,pageable);
         }
-        return orderRepository.findAll(pageable);
+        OrderStatusEnum statusEnum = OrderStatusEnum.CONFIRM;
+        return iReportRepository.getAllReportConfirm(pageable,statusEnum);
     }
 }

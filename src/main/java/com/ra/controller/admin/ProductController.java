@@ -1,9 +1,11 @@
 package com.ra.controller.admin;
 
+import com.ra.models.dto.repone.ProductOrderDto;
 import com.ra.models.entity.Category;
 import com.ra.models.entity.Product;
 import com.ra.service.admin.category.ICategoryService;
 import com.ra.service.admin.product.IProductService;
+import com.ra.service.user.orderdetail.OrderDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -27,6 +29,8 @@ public class ProductController {
     private IProductService productService;
     @Autowired
     private ICategoryService categoryService;
+    @Autowired
+    private OrderDetailService orderDetailService;
 
     @GetMapping("")
     public String home(Model model,
@@ -94,5 +98,12 @@ public class ProductController {
         product.setStatus(false);
         productService.save(product);
         return "redirect:/admin/product";
+    }
+
+    @GetMapping("/hot")
+    public String hotProduct(Model model){
+        List<ProductOrderDto> hotProduct =orderDetailService.top20Product();
+        model.addAttribute("hotProduct",hotProduct);
+        return "admin/product/hotproduct";
     }
 }

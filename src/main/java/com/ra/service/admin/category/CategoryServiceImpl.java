@@ -31,7 +31,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Override
     public Page<Category> getAllPage(String search, Integer pageNo) {
-        Pageable pageable = PageRequest.of(pageNo -1, 4);
+        Pageable pageable = PageRequest.of(pageNo -1, 7);
         if(search!=null && !search.isEmpty()){
             return categoryRepository.findCategoriesByCategoryNameLike("%"+search+"%",pageable);
         }

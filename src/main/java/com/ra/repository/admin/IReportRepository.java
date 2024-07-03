@@ -1,6 +1,7 @@
 package com.ra.repository.admin;
 
 import com.ra.models.entity.Order;
+import com.ra.models.entity.OrderStatusEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,7 @@ public interface IReportRepository extends JpaRepository<Order,Long> {
                           @Param("receiveDateEnd") Date receiveDateEnd,
                              Pageable pageable
     );
+
+    @Query("select o from  Order o where o.statusEnum =:status")
+    Page<Order> getAllReportConfirm(Pageable pageable, @Param("status")OrderStatusEnum statusEnum);
 }

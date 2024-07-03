@@ -17,7 +17,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public Page<Product> getAllPage(Integer pageNo, String search) {
-        Pageable pageable = PageRequest.of(pageNo-1,4);
+        Pageable pageable = PageRequest.of(pageNo-1,9);
         if(search!=null && !search.isEmpty()){
            return  productRepository.findProductByProductNameLike("%" +search+"%",pageable);
         }

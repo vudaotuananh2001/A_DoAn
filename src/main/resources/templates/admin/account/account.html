@@ -36,36 +36,35 @@
 
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
-                    <a href="#">
-                        <i class="fa fa-th"></i> <span>Quản lý danh mục</span>
+                    <a th:href="@{/admin/category}">
+                        <i class="fa fa-object-group"></i>Quản lý danh mục</span>
                         <span class="pull-right-container">
-              <small class="label pull-right bg-green">FE</small>
-            </span>
+                                <small class="label pull-right bg-green">FE</small>
+                        </span>
                     </a>
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm</span>
+                        <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm </span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
-                        <li><a href=""><i class="fa fa-circle-o"></i>Sản phẩm hot</a></li>
+                        <li><a th:href="@{/admin/product}"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
+                        <li><a th:href="@{/admin/product/hot}"><i class="fa fa-circle-o"></i>Sản phẩm hot</a></li>
                     </ul>
                 </li>
-
                 <li>
-                    <a href="/admin/user">
-                        <i class="fa fa-th"></i> <span>Quản lý khách hàng</span>
+                    <a th:href="@{/admin/user}">
+                        <i class="fa fa-user"></i> <span>Quản lý khách hàng</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-green">Hot</small>
             </span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/order">
+                    <a th:href="@{/admin/order}">
                         <i class="fa fa-th"></i> <span>Quản lý đơn hàng</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
@@ -73,14 +72,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/report">
-                        <i class="fa fa-th"></i> <span>Báo cáo</span>
+                    <a th:href="@{/admin/report}">
+                        <i class="fa fa-line-chart"></i><span>Báo cáo</span>
                         <span class="pull-right-container">
               <small class="label pull-right bg-green">FE</small>
             </span>
                     </a>
                 </li>
-
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -91,7 +89,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Danh mục danh mục
+                Danh sách người dùng
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
