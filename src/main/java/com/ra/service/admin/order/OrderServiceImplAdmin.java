@@ -1,5 +1,6 @@
 package com.ra.service.admin.order;
 
+import com.ra.models.dto.repone.UserDTO;
 import com.ra.models.entity.Order;
 import com.ra.models.entity.OrderStatusEnum;
 import com.ra.models.entity.Product;
@@ -28,4 +29,10 @@ public class OrderServiceImplAdmin implements  IOrderServiceAdmin{
         }
         return orderRepository.findAll(pageable);
     }
+
+        @Override
+        public Page<UserDTO> getTotalOrderPriceByCustomer(Integer pageNo) {
+            Pageable pageable = PageRequest.of(pageNo-1,10);
+           return orderRepository.findTotalOrderPriceByCustomer(pageable);
+        }
 }

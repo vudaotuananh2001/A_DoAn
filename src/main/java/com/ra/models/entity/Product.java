@@ -32,11 +32,9 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id" , referencedColumnName = "id")
     private Category category;
-
     @OneToMany(mappedBy = "product")
     @JsonIgnore
     List<OrderDetails> orderDetails;
-
     @OneToMany(mappedBy = "product")
     @JsonIgnore
     List<ShoppingCart> shopingCarts;

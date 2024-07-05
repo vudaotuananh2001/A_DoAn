@@ -55,13 +55,17 @@
                         <li><a th:href="@{/admin/product/hot}"><i class="fa fa-circle-o"></i>Sản phẩm hot</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a th:href="@{/admin/user}">
-                        <i class="fa fa-user"></i> <span>Quản lý khách hàng</span>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-user"></i><span>Quản lý khách hàng</span>
                         <span class="pull-right-container">
-              <small class="label pull-right bg-green">Hot</small>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/admin/user}"><i class="fa fa-circle-o"></i> Danh sách khách hàng</a></li>
+                        <li><a th:href="@{/admin/order/customer-total}"><i class="fa fa-circle-o"></i>Khách hàng tiềm năng</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a th:href="@{/admin/order}">
@@ -131,7 +135,7 @@
                                                role="grid" aria-describedby="example2_info">
                                             <thead>
                                             <tr role="row">
-                                                <th>Id</th>
+                                                <th>STT</th>
                                                 <th>Tên khách hàng</th>
                                                 <th>Số điện thoại</th>
                                                 <th>Địa chỉ</th>

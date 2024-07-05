@@ -1,8 +1,7 @@
 package com.ra.controller.admin;
 
+import com.ra.models.dto.repone.UserDTO;
 import com.ra.models.entity.Order;
-import com.ra.models.entity.OrderStatusEnum;
-import com.ra.models.entity.Product;
 import com.ra.service.admin.order.IOrderServiceAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,5 +28,15 @@ public class AdminOrderController {
         model.addAttribute("currenPage", page);
         model.addAttribute("orderList", orderList);
         return "admin/order/order";
+    }
+
+    @GetMapping("/customer-total")
+    public String getTotalOrderPriceByCustomer(Model model,
+                                               @RequestParam(name = "pageNo", defaultValue = "1") Integer page) {
+        Page<UserDTO> listUser = iOrderServiceAdmin.getTotalOrderPriceByCustomer(page);
+        model.addAttribute("listUser",listUser);
+        model.addAttribute("totalPage", listUser.getTotalPages());
+        model.addAttribute("currenPage", page);
+        return "admin/users/index";
     }
 }
