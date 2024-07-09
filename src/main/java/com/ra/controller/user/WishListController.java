@@ -58,7 +58,6 @@ public class WishListController {
         return "redirect:/user";
     }
 
-
     @GetMapping("/delete/{id}")
     public String delete_WishList(@PathVariable("id") Long id){
         iWishListService.deleteById(id);

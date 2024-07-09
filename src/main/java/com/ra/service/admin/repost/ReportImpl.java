@@ -21,10 +21,11 @@ public class ReportImpl implements IReport{
     @Override
     public Page<Order> getOrderTo(Integer pageNo, Date sentDate, Date receivedDate) {
         Pageable pageable = PageRequest.of(pageNo-1,10);
-        if(sentDate!=null && receivedDate!=null){
-            return  iReportRepository.getReport(sentDate,receivedDate,pageable);
-        }
         OrderStatusEnum statusEnum = OrderStatusEnum.CONFIRM;
-        return iReportRepository.getAllReportConfirm(pageable,statusEnum);
+        OrderStatusEnum statusPaid = OrderStatusEnum.PAID;
+        if (sentDate != null && receivedDate != null) {
+            return iReportRepository.getCombinedReport(sentDate, sentDate, receivedDate, receivedDate, statusEnum, statusPaid, pageable);
+        }
+        return iReportRepository.getAllReportConfirm(pageable,statusEnum,statusPaid);
     }
 }

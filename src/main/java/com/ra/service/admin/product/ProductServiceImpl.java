@@ -26,7 +26,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public Page<Product> getAllPageUser(Integer pageNo) {
-        Pageable pageable = PageRequest.of(pageNo-1,10);
+        Pageable pageable = PageRequest.of(pageNo-1,12);
         return productRepository.findAll(pageable);
     }
 

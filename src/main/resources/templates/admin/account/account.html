@@ -106,9 +106,6 @@
         <section class="content">
             <!-- Default box -->
             <div class="box">
-                <div class="box-body">
-                    <a href="/admin/category/add" class="btn-success">Thêm mới danh mục</a>
-                </div>
                 <div>
                     <div class="box">
                         <div class="box-header">
@@ -117,7 +114,7 @@
                         <form action="" method="get">
                             <div id="example1_filter" class="dataTables_filter">
                                 <label>Tìm kiếm người dùng</label>
-                                <input type="search" name="search" class="form-control input-sm" placeholder="search">
+                                <input type="search" name="search" class="form-control input-sm" placeholder="Tìm theo số điện thoại">
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-danger">Tim kiếm</button>
@@ -145,7 +142,7 @@
                                             <tbody>
                                             <tr th:each="iteam : ${listUser}">
                                                 <td th:text="${iteam.id}"></td>
-                                                <td th:text="${iteam.userName}"></td>
+                                                <td th:text="${iteam.fullName   }"></td>
                                                 <td th:text="${iteam.phone}"></td>
                                                 <td th:text="${iteam.address}"></td>
                                                 <td th:text="${iteam.email}"></td>

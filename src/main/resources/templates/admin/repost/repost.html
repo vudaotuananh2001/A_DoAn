@@ -151,7 +151,7 @@
                                                 <td th:text="${iteam.sentDate}"></td>
                                                 <td th:text="${iteam.receivedate}"></td>
                                                 <td th:text="${iteam.orderPrice}"></td>
-                                                <td th:text="${iteam.statusEnum.name() == 'WAITTING' ? 'Đang chờ': 'Đã giao'}"></td>
+                                                <td th:text="${iteam.statusEnum.name() == 'PAID' ? 'Đã thanh toán': 'Đã giao'}"></td>
                                                 <td>
                                                 </td>
                                             </tr>

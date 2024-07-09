@@ -20,8 +20,8 @@ public class InforUserController {
                               @RequestParam(name = "search",required = false) String search,
                               @RequestParam(name = "pageNo" ,defaultValue = "1")Integer page
     ){
-        System.out.println(search);
         Page<User> listUser =userService.getAllUser(search,page);
+        System.err.println(listUser);
         model.addAttribute("listUser",listUser);
         model.addAttribute("totalPage", listUser.getTotalPages());
         model.addAttribute("currenPage", page);

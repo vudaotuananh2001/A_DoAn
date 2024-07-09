@@ -11,12 +11,22 @@ import org.springframework.data.repository.query.Param;
 import java.util.Date;
 
 public interface IReportRepository extends JpaRepository<Order,Long> {
-    @Query("select  o from  Order  o where o.receivedate between  :receiveDateStart AND :receiveDateEnd ")
-    Page<Order> getReport(@Param("receiveDateStart") Date receiveDateStart,
-                          @Param("receiveDateEnd") Date receiveDateEnd,
-                             Pageable pageable
+    @Query("SELECT o FROM Order o WHERE (o.sentDate BETWEEN :sentDateStart AND :sentDateEnd OR o.receivedate BETWEEN :receivedDateStart AND :receivedDateEnd)" +
+            " AND (o.statusEnum = :statusConfirm OR o.statusEnum = :statusPaid)")
+    Page<Order> getCombinedReport(
+            @Param("sentDateStart") Date sentDateStart,
+            @Param("sentDateEnd") Date sentDateEnd,
+            @Param("receivedDateStart") Date receivedDateStart,
+            @Param("receivedDateEnd") Date receivedDateEnd,
+            @Param("statusConfirm") OrderStatusEnum statusConfirm,
+            @Param("statusPaid") OrderStatusEnum statusPaid,
+            Pageable pageable);
+
+
+    @Query("select o from  Order o where o.statusEnum =:status or o.statusEnum=:statusPaid")
+    Page<Order> getAllReportConfirm(Pageable pageable,
+            @Param("status")OrderStatusEnum statusEnum,
+            @Param("statusPaid")OrderStatusEnum statusPaid
     );
 
-    @Query("select o from  Order o where o.statusEnum =:status")
-    Page<Order> getAllReportConfirm(Pageable pageable, @Param("status")OrderStatusEnum statusEnum);
 }
